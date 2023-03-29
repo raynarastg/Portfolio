@@ -1,9 +1,79 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import { ColumnsWrapper } from '@/src/components/ColumnsWrapper';
+import { LeftColumn } from '@/src/components/LeftColumn';
+import { RightColumn } from '@/src/components/RightColumn';
+import { styled } from '@/stitches.config';
+import Head from 'next/head';
+import Image from 'next/image';
 
-const inter = Inter({ subsets: ['latin'] })
+// const StyledContainer = styled("div", {
+//   display: "flex",
+//   flexDirection: "row",
+//   gap: 80,
+// });
+
+// const StyledHeader = styled("header", {
+//   display: "flex",
+//   flexDirection: "row",
+//   gap: 20,
+// });
+
+// const ContainerEsquerdoEHeader = styled("div", {
+//   display: "flex",
+//   flexDirection: "column",
+//   gap: 96,
+// });
+
+// const StyledColumnText = styled("section", {
+//   background: "$cinzinha",
+//   border: "$cinza",
+//   color: "$elefante",
+// });
+
+// const StyledLink = styled(Link, {
+//   color: "$petroleo",
+// });
+
+{
+  /* <StyledLink href="/home">HOME</StyledLink>
+<StyledLink href="/projetos">PROJETOS</StyledLink>
+<StyledLink href="/sobre">SOBRE</StyledLink> */
+}
+
+const StyledHomeContainer = styled('div', {
+  alignItems: 'flex-start',
+  display: 'flex',
+  flexDirection: 'row',
+  gap: 24,
+  justifyContent: 'flex-start',
+});
+
+const StyledPictureContainer = styled('div', {
+  borderRadius: '50%',
+  display: 'inline-flex',
+  flexShrink: 0,
+  height: 62,
+  overflow: 'hidden',
+  position: 'relative',
+  width: 62,
+});
+
+const StyledHomeMessage = styled('div', {
+  background: '$cinzinha',
+  border: '1px solid $cinza',
+  borderRadius: '0px 24px 24px 24px',
+  display: 'inline-flex',
+  flexDirection: 'column',
+  gap: 20,
+  p: {
+    fontSize: 20,
+    lineHeight: '25px',
+    strong: {
+      fontWeight: 700,
+    },
+  },
+  px: 36,
+  py: 24,
+});
 
 export default function Home() {
   return (
@@ -14,110 +84,45 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
+      <ColumnsWrapper>
+        <LeftColumn />
+        <RightColumn>
+          <StyledHomeContainer>
+            <StyledPictureContainer>
               <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
+                src="/images/profile.jpg"
+                alt="Foto de Raynara Santiago"
+                fill
               />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+            </StyledPictureContainer>
+            <StyledHomeMessage>
+              <p>
+                Olá, meu nome é Raynara e sou uma{' '}
+                <strong>Desenvolvedora Web Full Stack</strong>
+                de 20 anos, baseada em <strong>Londrina-PR</strong>. 👋
+              </p>
+              <p>
+                Sou apaixonada por tecnologia e estou sempre buscando me
+                atualizar sobre as tendências do mercado. Tenho experiência em
+                <strong>Desenvolvimento Full Stack</strong>, mas atualmente
+                estou focada em me especializar em{' '}
+                <strong>Desenvolvimento Front-end</strong>.
+              </p>
+              <p>
+                {' '}
+                Meu objetivo é trabalhar em projetos desafiadores que me
+                permitam aplicar minhas habilidades de{' '}
+                <strong>Desenvolvimento Front-end</strong>
+                para criar interfaces atraentes e responsivas.
+              </p>
+              <p>
+                Sinta-se à vontade para explorar meu portfólio e conhecer um
+                pouco mais sobre mim e meus projetos.
+              </p>
+            </StyledHomeMessage>
+          </StyledHomeContainer>
+        </RightColumn>
+      </ColumnsWrapper>
     </>
-  )
+  );
 }
