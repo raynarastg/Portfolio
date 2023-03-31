@@ -1,5 +1,7 @@
 import { db } from '@/database';
 import { ColumnsWrapper } from '@/src/components/ColumnsWrapper';
+import { ContainerPage } from '@/src/components/ContainerPage';
+import { Header } from '@/src/components/Header';
 import { LeftColumn } from '@/src/components/LeftColumn';
 import { ProjectCard } from '@/src/components/ProjectCard';
 import { RightColumn } from '@/src/components/RightColumn';
@@ -18,7 +20,8 @@ const StyledProjectsContainer = styled('div', {
 
 export default function Projects() {
   return (
-    <>
+    <ContainerPage>
+      <Header></Header>
       <ColumnsWrapper>
         <LeftColumn />
         <RightColumn css={{ flexDirection: 'column', gap: 24 }}>
@@ -37,6 +40,6 @@ export default function Projects() {
           </StyledProjectsContainer>
         </RightColumn>
       </ColumnsWrapper>
-    </>
+    </ContainerPage>
   );
 }

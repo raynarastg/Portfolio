@@ -16,7 +16,7 @@ const StyledProjectCard = styled('div', {
   display: 'inline-flex',
   flex: 1,
   flexDirection: 'column',
-  minWidth: 270,
+  minWidth: 269,
   maxWidth: 286,
   transition: 'all 0.25s ease',
 });

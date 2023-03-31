@@ -1,7 +1,9 @@
 import { hardSkils, softSkils } from '@/database';
 import { ColumnsWrapper } from '@/src/components/ColumnsWrapper';
+import { ContainerPage } from '@/src/components/ContainerPage';
 import { CoursesAccordion } from '@/src/components/CoursesAccordion';
 import { StyledContainerGraduations, StyledContainerInfosGraduations } from '@/src/components/Graduation';
+import { Header } from '@/src/components/Header';
 import { LeftColumn } from '@/src/components/LeftColumn';
 import { RightColumn } from '@/src/components/RightColumn';
 import { StyledHardSkills } from '@/src/components/Skills';
@@ -60,7 +62,8 @@ const StyledLine = styled('p', {
 
 export default function About() {
   return (
-    <>
+    <ContainerPage>
+      <Header></Header>
       <ColumnsWrapper>
         <LeftColumn />
         <RightColumn css={{ flexDirection: 'column', gap: 24 }}>
@@ -120,6 +123,6 @@ export default function About() {
           </StyledAboutContainer>
         </RightColumn>
       </ColumnsWrapper>
-    </>
+    </ContainerPage>
   );
 }

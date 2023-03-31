@@ -2,6 +2,7 @@ import { Icon } from '@/components/Icon';
 import { styled } from '@/stitches.config';
 import * as Accordion from '@radix-ui/react-accordion';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { H4Title, H5Title } from '../Title';
 
@@ -70,6 +71,10 @@ const StyledImageIcon = styled('div', {
   width: 30,
 });
 
+const StyledLink = styled(Link, {
+  paddingBottom: 8,
+});
+
 export const CoursesAccordion: React.FC = () => (
   <StyledAccordionRoot type="multiple">
     <StyledAccordionItem className="AccordionItem" value="item-1">
@@ -100,7 +105,13 @@ export const CoursesAccordion: React.FC = () => (
           </Icon>
         </StyledTriggerDescription>
       </AccordionTrigger>
-      <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+      <AccordionContent>
+        {/* <StyledLink href="https://smartcerts.co/certificate/xyzpxery" target="_blank">
+          Certificado
+        </StyledLink> */}
+        Durante o módulo de Desenvolvimento Web, estudei e apliquei de forma prática conteúdos como: Unix,Bash, Git,
+        Internet, DOM, HTMl & CSS avançado, JS avançcado e Testes unitários.
+      </AccordionContent>
     </StyledAccordionItem>
     <StyledAccordionItem className="AccordionItem" value="item-2">
       <AccordionTrigger>

@@ -1,5 +1,7 @@
-import { StyledButton } from '@/src/components/Buttons';
+import { Buttons } from '@/src/components/Buttons';
 import { ColumnsWrapper } from '@/src/components/ColumnsWrapper';
+import { ContainerPage } from '@/src/components/ContainerPage';
+import { Header } from '@/src/components/Header';
 import { Icon } from '@/src/components/Icon';
 import { LeftColumn } from '@/src/components/LeftColumn';
 import { RightColumn } from '@/src/components/RightColumn';
@@ -51,12 +53,12 @@ const StyledTagsContainer = styled('div', {
   justifyContent: 'flex-start',
 });
 
-const StyledContainerButtons = styled('div', {
-  alignItems: 'flex-start',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 8,
-});
+// const StyledContainerButtons = styled('div', {
+//   alignItems: 'flex-start',
+//   display: 'flex',
+//   flexDirection: 'column',
+//   gap: 8,
+// });
 
 const StyledLink = styled(Link, {
   display: 'flex',
@@ -80,7 +82,8 @@ export default function Project() {
   const projectSlug = query.slug;
 
   return (
-    <>
+    <ContainerPage>
+      <Header></Header>
       <ColumnsWrapper>
         <LeftColumn />
         <RightColumn css={{ flexDirection: ' row', gap: 24, alignItems: 'flex-start' }}>
@@ -96,16 +99,7 @@ export default function Project() {
                 style={{ objectFit: 'cover' }}
               />
             </StyledImageContainer>
-            <StyledContainerButtons>
-              <StyledButton>
-                <Icon css={{ color: '$coral' }}>open_in_new</Icon>
-                <p>aplicação online</p>
-              </StyledButton>
-              <StyledButton>
-                <Icon css={{ color: '$coral' }}>code</Icon>
-                <p>repositório no github</p>
-              </StyledButton>
-            </StyledContainerButtons>
+            <Buttons></Buttons>
           </StyledProjectLeftColumn>
           <StyledProjectRightColumn>
             <StyledDetails>
@@ -139,6 +133,6 @@ export default function Project() {
           </StyledProjectRightColumn>
         </RightColumn>
       </ColumnsWrapper>
-    </>
+    </ContainerPage>
   );
 }

@@ -1,4 +1,6 @@
 import { ColumnsWrapper } from '@/src/components/ColumnsWrapper';
+import { ContainerPage } from '@/src/components/ContainerPage';
+import { Header } from '@/src/components/Header';
 import { LeftColumn } from '@/src/components/LeftColumn';
 import { RightColumn } from '@/src/components/RightColumn';
 import { styled } from '@/stitches.config';
@@ -50,40 +52,45 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ColumnsWrapper>
-        <LeftColumn />
-        <RightColumn>
-          <StyledHomeContainer>
-            <StyledPictureContainer>
-              <Image
-                src="/images/profile.jpg"
-                alt="Foto de Raynara Santiago"
-                style={{ objectFit: 'cover', transform: 'scale(1.7)', transformOrigin: '50% 10%' }}
-                fill
-              />
-            </StyledPictureContainer>
-            <StyledHomeMessage>
-              <p>
-                Olá, meu nome é Raynara e sou uma <strong>Desenvolvedora Web Full Stack </strong>
-                de 20 anos, baseada em <strong>Londrina-PR</strong>. 👋
-              </p>
-              <p>
-                Sou apaixonada por tecnologia e estou sempre buscando me atualizar sobre as tendências do mercado. Tenho
-                experiência em
-                <strong> Desenvolvimento Full Stack</strong>, mas atualmente estou focada em me especializar em{' '}
-                <strong>Desenvolvimento Front-end</strong>.
-              </p>
-              <p>
-                {' '}
-                Meu objetivo é trabalhar em projetos desafiadores que me permitam aplicar minhas habilidades de{' '}
-                <strong>Desenvolvimento Front-end </strong>
-                para criar interfaces atraentes e responsivas.
-              </p>
-              <p>Sinta-se à vontade para explorar meu portfólio e conhecer um pouco mais sobre mim e meus projetos.</p>
-            </StyledHomeMessage>
-          </StyledHomeContainer>
-        </RightColumn>
-      </ColumnsWrapper>
+      <ContainerPage>
+        <Header></Header>
+        <ColumnsWrapper>
+          <LeftColumn />
+          <RightColumn>
+            <StyledHomeContainer>
+              <StyledPictureContainer>
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Foto de Raynara Santiago"
+                  style={{ objectFit: 'cover', transform: 'scale(1.7)', transformOrigin: '50% 10%' }}
+                  fill
+                />
+              </StyledPictureContainer>
+              <StyledHomeMessage>
+                <p>
+                  Olá, meu nome é Raynara e sou uma <strong>Desenvolvedora Web Full Stack </strong>
+                  de 20 anos, baseada em <strong>Londrina-PR</strong>. 👋
+                </p>
+                <p>
+                  Sou apaixonada por tecnologia e estou sempre buscando me atualizar sobre as tendências do mercado.
+                  Tenho experiência em
+                  <strong> Desenvolvimento Full Stack</strong>, mas atualmente estou focada em me especializar em{' '}
+                  <strong>Desenvolvimento Front-end</strong>.
+                </p>
+                <p>
+                  {' '}
+                  Meu objetivo é trabalhar em projetos desafiadores que me permitam aplicar minhas habilidades de{' '}
+                  <strong>Desenvolvimento Front-end </strong>
+                  para criar interfaces atraentes e responsivas.
+                </p>
+                <p>
+                  Sinta-se à vontade para explorar meu portfólio e conhecer um pouco mais sobre mim e meus projetos.
+                </p>
+              </StyledHomeMessage>
+            </StyledHomeContainer>
+          </RightColumn>
+        </ColumnsWrapper>
+      </ContainerPage>
     </>
   );
 }
