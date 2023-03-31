@@ -27,24 +27,13 @@ export default function Projects() {
             {db.map((project, key) => (
               <ProjectCard
                 key={key}
+                projectPath={`/projeto/${key}`}
                 projectImageUrl={project.image}
                 projectTitle={project.name}
                 projectShortDescription={project.description}
                 projectTags={project.tags}
-              />
+              ></ProjectCard>
             ))}
-            {/* <ProjectCard
-              projectImageUrl="https://picsum.photos/1920/1080"
-              projectTitle="🃏 Tryunfo"
-              projectShortDescription="Projeto de cartas virtuais no estilo Super Trunfo"
-              projectTags={[
-                { label: 'React', color: 'azul' },
-                { label: 'Node', color: 'verde' },
-                { label: 'Redux', color: 'roxo' },
-                { label: 'CSS', color: 'coral' },
-                { label: 'Javascript', color: 'amarelo' },
-              ]}
-            /> */}
           </StyledProjectsContainer>
         </RightColumn>
       </ColumnsWrapper>

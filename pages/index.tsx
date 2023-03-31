@@ -5,40 +5,6 @@ import { styled } from '@/stitches.config';
 import Head from 'next/head';
 import Image from 'next/image';
 
-// const StyledContainer = styled("div", {
-//   display: "flex",
-//   flexDirection: "row",
-//   gap: 80,
-// });
-
-// const StyledHeader = styled("header", {
-//   display: "flex",
-//   flexDirection: "row",
-//   gap: 20,
-// });
-
-// const ContainerEsquerdoEHeader = styled("div", {
-//   display: "flex",
-//   flexDirection: "column",
-//   gap: 96,
-// });
-
-// const StyledColumnText = styled("section", {
-//   background: "$cinzinha",
-//   border: "$cinza",
-//   color: "$elefante",
-// });
-
-// const StyledLink = styled(Link, {
-//   color: "$petroleo",
-// });
-
-{
-  /* <StyledLink href="/home">HOME</StyledLink>
-<StyledLink href="/projetos">PROJETOS</StyledLink>
-<StyledLink href="/sobre">SOBRE</StyledLink> */
-}
-
 const StyledHomeContainer = styled('div', {
   alignItems: 'flex-start',
   display: 'flex',
@@ -92,33 +58,28 @@ export default function Home() {
               <Image
                 src="/images/profile.jpg"
                 alt="Foto de Raynara Santiago"
+                style={{ objectFit: 'cover', transform: 'scale(1.7)', transformOrigin: '50% 10%' }}
                 fill
               />
             </StyledPictureContainer>
             <StyledHomeMessage>
               <p>
-                Olá, meu nome é Raynara e sou uma{' '}
-                <strong>Desenvolvedora Web Full Stack</strong>
+                Olá, meu nome é Raynara e sou uma <strong>Desenvolvedora Web Full Stack </strong>
                 de 20 anos, baseada em <strong>Londrina-PR</strong>. 👋
               </p>
               <p>
-                Sou apaixonada por tecnologia e estou sempre buscando me
-                atualizar sobre as tendências do mercado. Tenho experiência em
-                <strong>Desenvolvimento Full Stack</strong>, mas atualmente
-                estou focada em me especializar em{' '}
+                Sou apaixonada por tecnologia e estou sempre buscando me atualizar sobre as tendências do mercado. Tenho
+                experiência em
+                <strong> Desenvolvimento Full Stack</strong>, mas atualmente estou focada em me especializar em{' '}
                 <strong>Desenvolvimento Front-end</strong>.
               </p>
               <p>
                 {' '}
-                Meu objetivo é trabalhar em projetos desafiadores que me
-                permitam aplicar minhas habilidades de{' '}
-                <strong>Desenvolvimento Front-end</strong>
+                Meu objetivo é trabalhar em projetos desafiadores que me permitam aplicar minhas habilidades de{' '}
+                <strong>Desenvolvimento Front-end </strong>
                 para criar interfaces atraentes e responsivas.
               </p>
-              <p>
-                Sinta-se à vontade para explorar meu portfólio e conhecer um
-                pouco mais sobre mim e meus projetos.
-              </p>
+              <p>Sinta-se à vontade para explorar meu portfólio e conhecer um pouco mais sobre mim e meus projetos.</p>
             </StyledHomeMessage>
           </StyledHomeContainer>
         </RightColumn>

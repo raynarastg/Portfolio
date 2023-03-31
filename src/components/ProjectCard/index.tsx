@@ -1,6 +1,7 @@
 import { styled } from '@/stitches.config';
 import { ComponentProps } from '@stitches/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Tag } from '../Tag';
 import { H3Title } from '../Title';
 
@@ -16,6 +17,7 @@ const StyledProjectCard = styled('div', {
   flex: 1,
   flexDirection: 'column',
   minWidth: 270,
+  maxWidth: 286,
   transition: 'all 0.25s ease',
 });
 
@@ -49,16 +51,12 @@ const StyledTagsContainer = styled('div', {
   marginTop: 8,
 });
 
-type Tag = {
-  color: 'azul' | 'roxo' | 'coral' | 'verde' | 'amarelo';
-  label: string;
-};
-
 type ProjectCardProps = ComponentProps<typeof StyledProjectCard> & {
   projectImageUrl: string;
   projectShortDescription: string;
   projectTags: Tag[];
   projectTitle: string;
+  projectPath: string;
 };
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -66,36 +64,35 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   projectImageUrl,
   projectShortDescription,
   projectTags,
+  projectPath,
   ...props
 }) => {
   return (
     <StyledProjectCard {...props}>
-      <StyledContainerProjectImage>
-        {projectImageUrl && (
-          <Image
-            src={projectImageUrl}
-            alt="miniatura do projeto"
-            fill
-            style={{ objectFit: 'cover' }}
-          />
-        )}
-      </StyledContainerProjectImage>
-      <StyledProjectDetails>
-        <H3Title style="sans-serif" weight="bold" css={{ textAlign: 'center' }}>
-          {projectTitle}
-        </H3Title>
-        <p>{projectShortDescription}</p>
-        <StyledTagsContainer>
-          {projectTags.map(
-            (tag, tagKey) =>
-              tag.label && (
-                <Tag key={tagKey} color={tag.color}>
-                  {tag.label}
-                </Tag>
-              )
+      <Link href={projectPath}>
+        <StyledContainerProjectImage>
+          {projectImageUrl && (
+            <Image src={projectImageUrl} alt="miniatura do projeto" fill style={{ objectFit: 'cover' }} />
           )}
-        </StyledTagsContainer>
-      </StyledProjectDetails>
+        </StyledContainerProjectImage>
+        <StyledProjectDetails>
+          <H3Title style="sans-serif" weight="bold" css={{ textAlign: 'center' }}>
+            {projectTitle}
+          </H3Title>
+          <p>{projectShortDescription}</p>
+
+          <StyledTagsContainer>
+            {projectTags.map(
+              (tag, tagKey) =>
+                tag.label && (
+                  <Tag key={tagKey} color={tag.color}>
+                    {tag.label}
+                  </Tag>
+                )
+            )}
+          </StyledTagsContainer>
+        </StyledProjectDetails>
+      </Link>
     </StyledProjectCard>
   );
 };

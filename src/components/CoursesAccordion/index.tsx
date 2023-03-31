@@ -1,6 +1,7 @@
 import { Icon } from '@/components/Icon';
 import { styled } from '@/stitches.config';
 import * as Accordion from '@radix-ui/react-accordion';
+import Image from 'next/image';
 import React from 'react';
 import { H4Title, H5Title } from '../Title';
 
@@ -36,16 +37,15 @@ const StyledAccordionTrigger = styled(Accordion.Trigger, {
   display: 'flex',
 });
 
-const AccordionTrigger = React.forwardRef<
-  HTMLButtonElement,
-  { children?: any }
->(({ children, ...props }, forwardedRef) => (
-  <StyledAccordionHeader>
-    <StyledAccordionTrigger {...props} ref={forwardedRef}>
-      {children}
-    </StyledAccordionTrigger>
-  </StyledAccordionHeader>
-));
+const AccordionTrigger = React.forwardRef<HTMLButtonElement, { children?: any }>(
+  ({ children, ...props }, forwardedRef) => (
+    <StyledAccordionHeader>
+      <StyledAccordionTrigger {...props} ref={forwardedRef}>
+        {children}
+      </StyledAccordionTrigger>
+    </StyledAccordionHeader>
+  )
+);
 AccordionTrigger.displayName = 'AccordionTrigger';
 
 const AccordionContent = React.forwardRef<HTMLDivElement, { children?: any }>(
@@ -63,30 +63,27 @@ const StyledTriggerDescription = styled('div', {
   alignItems: 'center',
   width: '100%',
 });
+
+const StyledImageIcon = styled('div', {
+  height: 30,
+  position: 'relative',
+  width: 30,
+});
+
 export const CoursesAccordion: React.FC = () => (
   <StyledAccordionRoot type="multiple">
     <StyledAccordionItem className="AccordionItem" value="item-1">
       <AccordionTrigger>
         <StyledTriggerDescription>
-          <Icon
-            size="big"
-            style="outlined"
-            css={{ transform: 'rotate(180deg)' }}
-          >
-            card_membership
-          </Icon>
+          <StyledImageIcon>
+            <Image src="/images/icon-certificate.png" alt="miniatura-icon" fill />
+          </StyledImageIcon>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            <H5Title
-              style="sans-serif"
-              css={{ color: '$cinza', fontWeight: 700 }}
-            >
-              FEVEREIRO 2004
+            <H5Title style="sans-serif" css={{ color: '$cinza', fontWeight: 700 }}>
+              FEVEREIRO 2022
             </H5Title>
             <H4Title style="sans-serif" css={{}}>
-              <span style={{ fontWeight: 700 }}>
-                CURSO INTRODUTÓRIO JAVASCRIPT
-              </span>
-              , TRYBE
+              <span style={{ fontWeight: 700 }}>CURSO INTRODUTÓRIO JAVASCRIPT</span>, TRYBE
             </H4Title>
           </div>
           <Icon
@@ -103,32 +100,20 @@ export const CoursesAccordion: React.FC = () => (
           </Icon>
         </StyledTriggerDescription>
       </AccordionTrigger>
-      <AccordionContent>
-        Yes. It adheres to the WAI-ARIA design pattern.
-      </AccordionContent>
+      <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
     </StyledAccordionItem>
     <StyledAccordionItem className="AccordionItem" value="item-2">
       <AccordionTrigger>
         <StyledTriggerDescription>
-          <Icon
-            size="big"
-            style="outlined"
-            css={{ transform: 'rotate(180deg)' }}
-          >
-            card_membership
-          </Icon>
+          <StyledImageIcon>
+            <Image src="/images/icon-certificate.png" alt="miniatura-icon" fill />
+          </StyledImageIcon>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            <H5Title
-              style="sans-serif"
-              css={{ color: '$cinza', fontWeight: 700 }}
-            >
-              FEVEREIRO 2004
+            <H5Title style="sans-serif" css={{ color: '$cinza', fontWeight: 700 }}>
+              JUNHO 2022
             </H5Title>
             <H4Title style="sans-serif" css={{}}>
-              <span style={{ fontWeight: 700 }}>
-                CURSO INTRODUTÓRIO JAVASCRIPT
-              </span>
-              , TRYBE
+              <span style={{ fontWeight: 700 }}>FUNDAMENTOS DO DESENVOLVIMENTO WEB</span>, TRYBE
             </H4Title>
           </div>
           <Icon
@@ -145,32 +130,20 @@ export const CoursesAccordion: React.FC = () => (
           </Icon>
         </StyledTriggerDescription>
       </AccordionTrigger>
-      <AccordionContent>
-        Yes. It adheres to the WAI-ARIA design pattern.
-      </AccordionContent>
+      <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
     </StyledAccordionItem>
     <StyledAccordionItem className="AccordionItem" value="item-3">
       <AccordionTrigger>
         <StyledTriggerDescription>
-          <Icon
-            size="big"
-            style="outlined"
-            css={{ transform: 'rotate(180deg)' }}
-          >
-            card_membership
-          </Icon>
+          <StyledImageIcon>
+            <Image src="/images/icon-certificate.png" alt="miniatura-icon" fill />
+          </StyledImageIcon>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            <H5Title
-              style="sans-serif"
-              css={{ color: '$cinza', fontWeight: 700 }}
-            >
-              FEVEREIRO 2004
+            <H5Title style="sans-serif" css={{ color: '$cinza', fontWeight: 700 }}>
+              SETEMBRO 2022
             </H5Title>
             <H4Title style="sans-serif" css={{}}>
-              <span style={{ fontWeight: 700 }}>
-                CURSO INTRODUTÓRIO JAVASCRIPT
-              </span>
-              , TRYBE
+              <span style={{ fontWeight: 700 }}>DESENVOLVIMENTO FRONT-END</span>, TRYBE
             </H4Title>
           </div>
           <Icon
@@ -187,32 +160,20 @@ export const CoursesAccordion: React.FC = () => (
           </Icon>
         </StyledTriggerDescription>
       </AccordionTrigger>
-      <AccordionContent>
-        Yes. It adheres to the WAI-ARIA design pattern.
-      </AccordionContent>
+      <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
     </StyledAccordionItem>
     <StyledAccordionItem className="AccordionItem" value="item-4">
       <AccordionTrigger>
         <StyledTriggerDescription>
-          <Icon
-            size="big"
-            style="outlined"
-            css={{ transform: 'rotate(180deg)' }}
-          >
-            card_membership
-          </Icon>
+          <StyledImageIcon>
+            <Image src="/images/icon-certificate.png" alt="miniatura-icon" fill />
+          </StyledImageIcon>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            <H5Title
-              style="sans-serif"
-              css={{ color: '$cinza', fontWeight: 700 }}
-            >
-              FEVEREIRO 2004
+            <H5Title style="sans-serif" css={{ color: '$cinza', fontWeight: 700 }}>
+              FEVEREIRO 2023
             </H5Title>
             <H4Title style="sans-serif" css={{}}>
-              <span style={{ fontWeight: 700 }}>
-                CURSO INTRODUTÓRIO JAVASCRIPT
-              </span>
-              , TRYBE
+              <span style={{ fontWeight: 700 }}>DESENVOLVIMENTO BACK-END</span>, TRYBE
             </H4Title>
           </div>
           <Icon
@@ -229,9 +190,7 @@ export const CoursesAccordion: React.FC = () => (
           </Icon>
         </StyledTriggerDescription>
       </AccordionTrigger>
-      <AccordionContent>
-        Yes. It adheres to the WAI-ARIA design pattern.
-      </AccordionContent>
+      <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
     </StyledAccordionItem>
   </StyledAccordionRoot>
 );

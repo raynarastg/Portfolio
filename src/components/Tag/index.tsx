@@ -1,27 +1,52 @@
-import { styled } from "@/stitches.config";
+import { styled } from '@/stitches.config';
 
-const StyledTag = styled("span", {
-  backgroundColor: "$petroleo",
+export type Tag = {
+  color?: 'azul' | 'roxo' | 'coral' | 'verde' | 'amarelo' | 'rosa' | 'cinza' | 'pretinho';
+  label: string;
+};
+
+const StyledTag = styled('span', {
+  backgroundColor: '$petroleo',
   borderRadius: 9999,
-  color: "$branco",
+  color: '$branco',
   fontSize: 12,
-  lineHeight: "15px",
+  lineHeight: '15px',
   variants: {
     color: {
       amarelo: {
-        backgroundColor: "$amarelo",
+        backgroundColor: '$amarelo',
       },
       azul: {
-        backgroundColor: "$azul",
+        backgroundColor: '$azul',
       },
       coral: {
-        backgroundColor: "$coral",
+        backgroundColor: '$coral',
       },
       roxo: {
-        backgroundColor: "$roxo",
+        backgroundColor: '$roxo',
       },
       verde: {
-        backgroundColor: "$verde",
+        backgroundColor: '$verde',
+      },
+      rosa: {
+        backgroundColor: '$rosa',
+      },
+      pretinho: {
+        backgroundColor: '$pretinho',
+      },
+      cinza: {
+        backgroundColor: '$cinza',
+      },
+      marronzinho: {
+        backgroundColor: '#D3AB9E',
+      },
+    },
+    type: {
+      soft: {
+        backgroundColor: '$lilas',
+        color: '$offwhite',
+        fontSize: 14,
+        textTransform: 'uppercase',
       },
     },
   },
