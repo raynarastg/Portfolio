@@ -1,6 +1,7 @@
 import { styled } from '@/stitches.config';
+import { ComponentProps } from '@stitches/react';
 import Link from 'next/link';
-import { ComponentProps } from 'react';
+import React from 'react';
 import { Icon } from '../Icon';
 
 export const StyledButton = styled('button', {
@@ -47,28 +48,72 @@ export const Buttons: React.FC<ButtonsProps> = ({ ...props }) => {
   );
 };
 
-export const StyledButtonHeader = styled('button', {
+const StyledButtonColor = styled('div', {
+  position: 'absolute',
+  left: 0,
+  backgroundColor: '$azul',
+  color: '$offwhite',
+  overflow: 'hidden',
+  height: '100%',
+  width: '2px',
+  transition: 'all 0.3s ease',
+  '.buttonContent': {
+    position: 'absolute',
+    left: 0,
+    paddingLeft: 10,
+    paddingRight: 8,
+    display: 'flex',
+    gap: 8,
+    fontFamily: 'Sen, sans-serif',
+    fontSize: 16,
+    fontWeight: 700,
+  },
+  [`& ${Icon}`]: {
+    color: '$offwhite',
+  },
+});
+
+const StyledButtonHeader = styled('button', {
   all: 'unset',
-  borderLeft: '2px solid $azul',
   backgroundColor: '$offwhite',
   color: '$petroleo',
   display: 'flex',
   gap: 8,
   px: 8,
+  paddingLeft: 10,
   fontFamily: 'Sen, sans-serif',
   fontSize: 16,
   fontWeight: 700,
-  Icon: {
-    fontVariant: "'FILL' 0'wght' 400'GRAD' 0'opsz' 48",
+  position: 'relative',
+  [`&:hover ${StyledButtonColor}`]: {
+    width: '100%',
+    // backgroundColor: '$coral',
   },
-  '&:active': {
-    backgroundColor: '$coral',
-    color: '$offwhite',
-    borderLeft: '$coral',
-  },
-  '&:hover': {
-    backgroundColor: '$coral',
-    color: '$offwhite',
-    borderLeft: '2px solid $coral',
+  variants: {
+    active: {
+      true: {
+        backgroundColor: '$coral',
+        color: '$offwhite',
+        [`& ${StyledButtonColor}`]: {
+          display: 'none',
+        },
+        [`& ${Icon}`]: {
+          color: '$offwhite',
+        },
+      },
+    },
   },
 });
+
+type HeaderButton = ComponentProps<typeof StyledButtonHeader>;
+
+export const HeaderButton: React.FC<HeaderButton> = ({ children, ...props }) => {
+  return (
+    <StyledButtonHeader {...props}>
+      <StyledButtonColor>
+        <div className="buttonContent">{children}</div>
+      </StyledButtonColor>
+      {children}
+    </StyledButtonHeader>
+  );
+};

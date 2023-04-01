@@ -53,14 +53,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ContainerPage>
-        <Header></Header>
+        <Header pageActive="home" />
         <ColumnsWrapper>
           <LeftColumn />
           <RightColumn>
             <StyledHomeContainer>
               <StyledPictureContainer>
                 <Image
-                  src="/images/profile.jpg"
+                  src="/images/profilee.jpeg"
                   alt="Foto de Raynara Santiago"
                   style={{ objectFit: 'cover', transform: 'scale(1.7)', transformOrigin: '50% 10%' }}
                   fill

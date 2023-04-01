@@ -83,7 +83,7 @@ export default function Project() {
 
   return (
     <ContainerPage>
-      <Header></Header>
+      <Header />
       <ColumnsWrapper>
         <LeftColumn />
         <RightColumn css={{ flexDirection: ' row', gap: 24, alignItems: 'flex-start' }}>

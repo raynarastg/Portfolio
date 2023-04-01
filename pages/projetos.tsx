@@ -21,7 +21,7 @@ const StyledProjectsContainer = styled('div', {
 export default function Projects() {
   return (
     <ContainerPage>
-      <Header></Header>
+      <Header pageActive="projetos" />
       <ColumnsWrapper>
         <LeftColumn />
         <RightColumn css={{ flexDirection: 'column', gap: 24 }}>

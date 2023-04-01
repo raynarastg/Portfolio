@@ -63,7 +63,7 @@ const StyledLine = styled('p', {
 export default function About() {
   return (
     <ContainerPage>
-      <Header></Header>
+      <Header pageActive="sobre" />
       <ColumnsWrapper>
         <LeftColumn />
         <RightColumn css={{ flexDirection: 'column', gap: 24 }}>

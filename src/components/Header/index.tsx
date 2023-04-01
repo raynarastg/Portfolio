@@ -1,7 +1,7 @@
 import { styled } from '@stitches/react';
 import Link from 'next/link';
 import React, { ComponentProps } from 'react';
-import { StyledButtonHeader } from '../Buttons';
+import { HeaderButton } from '../Buttons';
 import { Icon } from '../Icon';
 
 export const ContainerButtonsHeader = styled('header', {
@@ -12,28 +12,30 @@ export const ContainerButtonsHeader = styled('header', {
   width: 328,
 });
 
-type HeaderProps = ComponentProps<typeof ContainerButtonsHeader> & {};
+type HeaderProps = ComponentProps<typeof ContainerButtonsHeader> & {
+  pageActive?: 'home' | 'projetos' | 'sobre';
+};
 
-export const Header: React.FC<HeaderProps> = ({ ...props }) => {
+export const Header: React.FC<HeaderProps> = ({ pageActive, ...props }) => {
   return (
     <ContainerButtonsHeader {...props}>
       <Link href="/">
-        <StyledButtonHeader>
+        <HeaderButton active={pageActive == 'home' ? true : false}>
           <Icon>home</Icon>
           <p>HOME</p>
-        </StyledButtonHeader>
+        </HeaderButton>
       </Link>
       <Link href="/projetos">
-        <StyledButtonHeader>
+        <HeaderButton active={pageActive == 'projetos' ? true : false}>
           <Icon>code_off</Icon>
           <p>PROJETOS</p>
-        </StyledButtonHeader>
+        </HeaderButton>
       </Link>
       <Link href="/sobre">
-        <StyledButtonHeader>
+        <HeaderButton active={pageActive == 'sobre' ? true : false}>
           <Icon>auto_awesome</Icon>
           <p>SOBRE</p>
-        </StyledButtonHeader>
+        </HeaderButton>
       </Link>
     </ContainerButtonsHeader>
   );
