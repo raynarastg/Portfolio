@@ -75,8 +75,11 @@ const StyledLink = styled(Link, {
   },
 });
 
-const Project: NextPage<{ project?: ProjectType }> = ({ project }) => {
-  const projectTags = project?.projectTags;
+interface ProjectProps {
+  project?: ProjectType | undefined;
+}
+
+const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -85,87 +88,69 @@ const Project: NextPage<{ project?: ProjectType }> = ({ project }) => {
     }
   }, [project, router]);
 
+  if (!project) return null;
+
   return (
-    project && (
-      <ContainerPage>
-        <Header />
-        <ColumnsWrapper>
-          <LeftColumn />
-          <RightColumn css={{ flexDirection: ' row', gap: 24, alignItems: 'flex-start' }}>
-            <StyledProjectLeftColumn>
-              <StyledLink href="/projetos">
-                <Icon css={{ color: '$coral' }}>arrow_back_ios</Icon> <p>ver todos os projetos</p>
-              </StyledLink>
-              <StyledImageContainer>
-                <Image src={project.projectPhoto.url} alt="Miniatura do Projeto" fill style={{ objectFit: 'cover' }} />
-              </StyledImageContainer>
-              <StyledContainerButtons>
-                <Link href={project.projectDeploy} target="_blank">
-                  <StyledButton>
-                    <Icon css={{ color: '$coral' }}>open_in_new</Icon>
-                    <p>aplicação online</p>
-                  </StyledButton>
-                </Link>
-                <Link href={project.projectRepositorio} target="_blank">
-                  <StyledButton>
-                    <Icon css={{ color: '$coral' }}>code</Icon>
-                    <p>repositório no github</p>
-                  </StyledButton>
-                </Link>
-              </StyledContainerButtons>
-              {/* <Buttons></Buttons> */}
-            </StyledProjectLeftColumn>
-            <StyledProjectRightColumn>
-              <StyledDetails>
-                <H2Title>{project?.projectName}</H2Title>
-                <p>{project.projectLongDescription}</p>
-              </StyledDetails>
-              <StyledStack>
-                <H3Title style="sans-serif" weight="bold">
-                  Tecnologias utilizadas
-                </H3Title>
-                <StyledTagsContainer>
-                  {projectTags?.map(
-                    (tag, tagKey) =>
-                      tag.label && (
-                        <Tag key={tagKey} color={tag.color}>
-                          {tag.label}
-                        </Tag>
-                      )
-                  )}
-                </StyledTagsContainer>
-              </StyledStack>
-            </StyledProjectRightColumn>
-          </RightColumn>
-        </ColumnsWrapper>
-      </ContainerPage>
-    )
+    <ContainerPage>
+      <Header />
+      <ColumnsWrapper>
+        <LeftColumn />
+        <RightColumn css={{ flexDirection: ' row', gap: 24, alignItems: 'flex-start' }}>
+          <StyledProjectLeftColumn>
+            <StyledLink href="/projetos">
+              <Icon css={{ color: '$coral' }}>arrow_back_ios</Icon> <p>ver todos os projetos</p>
+            </StyledLink>
+            <StyledImageContainer>
+              <Image src={project.projectPhoto.url} alt="Miniatura do Projeto" fill style={{ objectFit: 'cover' }} />
+            </StyledImageContainer>
+            <StyledContainerButtons>
+              <Link href={project.projectDeploy} target="_blank">
+                <StyledButton>
+                  <Icon css={{ color: '$coral' }}>open_in_new</Icon>
+                  <p>aplicação online</p>
+                </StyledButton>
+              </Link>
+              <Link href={project.projectRepositorio} target="_blank">
+                <StyledButton>
+                  <Icon css={{ color: '$coral' }}>code</Icon>
+                  <p>repositório no github</p>
+                </StyledButton>
+              </Link>
+            </StyledContainerButtons>
+            {/* <Buttons></Buttons> */}
+          </StyledProjectLeftColumn>
+          <StyledProjectRightColumn>
+            <StyledDetails>
+              <H2Title>{project.projectName}</H2Title>
+              <p>{project.projectLongDescription}</p>
+            </StyledDetails>
+            <StyledStack>
+              <H3Title style="sans-serif" weight="bold">
+                Tecnologias utilizadas
+              </H3Title>
+              <StyledTagsContainer>
+                {project.projectTags.map(
+                  (tag, tagKey) =>
+                    tag.label && (
+                      <Tag key={tagKey} color={tag.color}>
+                        {tag.label}
+                      </Tag>
+                    )
+                )}
+              </StyledTagsContainer>
+            </StyledStack>
+          </StyledProjectRightColumn>
+        </RightColumn>
+      </ColumnsWrapper>
+    </ContainerPage>
   );
 };
 
-Project.getInitialProps = async ({ res, query }) => {
+ProjectPage.getInitialProps = async ({ query }) => {
   const slug = query.slug;
+  const project = db.find(project => project.projectSlug == slug);
 
-  const project = db.find(project => project.slug == slug);
-  return {
-    project: project
-      ? ({
-          projectName: project.name,
-          projectShortDescription: project.description,
-          projectLongDescription: project.longDescription,
-          projectPhoto: { url: project.image },
-          projectSlug: project.slug,
-          projectTags: project.tags,
-          projectDeploy: project.deploy,
-          projectRepositorio: project.repositorio,
-        } as ProjectType)
-      : undefined,
-  };
+  return { project };
 };
-// if (res) {
-//   res.statusCode = 404;
-//   res.end('Not found');
-//   return {project: undefined};
-// }
 
-export default Project;
+export default ProjectPage;

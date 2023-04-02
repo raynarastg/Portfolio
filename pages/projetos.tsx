@@ -30,11 +30,11 @@ export default function Projects() {
             {db.map((project, key) => (
               <ProjectCard
                 key={key}
-                projectPath={`/projeto/${project.slug}`}
-                projectImageUrl={project.image}
-                projectTitle={project.name}
-                projectShortDescription={project.description}
-                projectTags={project.tags}
+                projectPath={`/projeto/${project.projectSlug}`}
+                projectImageUrl={project.projectPhoto.url}
+                projectTitle={project.projectName}
+                projectShortDescription={project.projectShortDescription}
+                projectTags={project.projectTags}
               ></ProjectCard>
             ))}
           </StyledProjectsContainer>

@@ -1,5 +1,7 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
+import { Tag } from './src/components/Tag';
+
 const client = new ApolloClient({
   uri: 'https://api-sa-east-1.hygraph.com/v2/clft0tr922bqv01unb8dvb689/master',
   cache: new InMemoryCache(),
@@ -21,16 +23,16 @@ type DataType = {
   projects: ProjectType[];
 };
 
-type DbType = {
-  slug: string;
-  name: string;
-  image: string;
-  description: string;
-  longDescription?: string;
-  tags: Tag[];
-  repositorio: string;
-  deploy: string;
-};
+// type DbType = {
+//   slug: string;
+//   name: string;
+//   image: string;
+//   description: string;
+//   longDescription?: string;
+//   tags: Tag[];
+//   repositorio: string;
+//   deploy: string;
+// };
 
 async function ConsultProjects() {
   const { data } = await client.query<DataType>({
@@ -41,6 +43,7 @@ async function ConsultProjects() {
           projectSlug
           projectName
           projectShortDescription
+          projectLongDescription
           projectTags
           projectPhoto {
             url
@@ -56,22 +59,14 @@ async function ConsultProjects() {
 
 const hygraphProjects = await ConsultProjects();
 
-export const db: DbType[] = hygraphProjects.map(hygraphProject => ({
-  slug: hygraphProject.projectSlug,
-  name: hygraphProject.projectName,
-  image: hygraphProject.projectPhoto.url,
-  description: hygraphProject.projectShortDescription,
-  longDescription: hygraphProject.projectLongDescription,
-  tags: [
+export const db: ProjectType[] = hygraphProjects.map(hygraphProject => ({
+  ...hygraphProject,
+  projectTags: [
     { label: 'React', color: 'azul' },
     { label: 'JavaScript', color: 'amarelo' },
     { label: 'CSS', color: 'coral' },
   ],
-  repositorio: hygraphProject.projectRepositorio,
-  deploy: hygraphProject.projectDeploy,
 }));
-
-import { Tag } from './src/components/Tag';
 
 type HardSkill = {
   skill: string;
