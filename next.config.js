@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['picsum.photos'],
+    domains: ['picsum.photos', 'media.graphassets.com'],
+  },
+  webpack(config) {
+    config.experiments = { ...config.experiments, topLevelAwait: true };
+    return config;
   },
 };
 

@@ -1,4 +1,5 @@
-import { Buttons } from '@/src/components/Buttons';
+import { ProjectType, db } from '@/database';
+import { StyledButton, StyledContainerButtons } from '@/src/components/Buttons';
 import { ColumnsWrapper } from '@/src/components/ColumnsWrapper';
 import { ContainerPage } from '@/src/components/ContainerPage';
 import { Header } from '@/src/components/Header';
@@ -8,9 +9,11 @@ import { RightColumn } from '@/src/components/RightColumn';
 import { Tag } from '@/src/components/Tag';
 import { H2Title, H3Title } from '@/src/components/Title';
 import { styled } from '@/stitches.config';
+import { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const StyledProjectLeftColumn = styled('div', {
   backgroundColor: '$offwhite',
@@ -72,67 +75,97 @@ const StyledLink = styled(Link, {
   },
 });
 
-export default function Project() {
-  const projectTags = [
-    { label: 'React', color: 'azul' },
-    { label: 'JavaScript', color: 'amarelo' },
-    { label: 'CSS', color: 'coral' },
-  ] as Tag[];
-  const { query } = useRouter();
-  const projectSlug = query.slug;
+const Project: NextPage<{ project?: ProjectType }> = ({ project }) => {
+  const projectTags = project?.projectTags;
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!project) {
+      router.push('/projetos');
+    }
+  }, [project, router]);
 
   return (
-    <ContainerPage>
-      <Header />
-      <ColumnsWrapper>
-        <LeftColumn />
-        <RightColumn css={{ flexDirection: ' row', gap: 24, alignItems: 'flex-start' }}>
-          <StyledProjectLeftColumn>
-            <StyledLink href="/projetos">
-              <Icon css={{ color: '$coral' }}>arrow_back_ios</Icon> <p>ver todos os projetos</p>
-            </StyledLink>
-            <StyledImageContainer>
-              <Image
-                src="https://picsum.photos/1920/1080"
-                alt="Miniatura do Projeto"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
-            </StyledImageContainer>
-            <Buttons></Buttons>
-          </StyledProjectLeftColumn>
-          <StyledProjectRightColumn>
-            <StyledDetails>
-              <H2Title>{projectSlug}</H2Title>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non consequat velit. Nunc aliquam mi
-                quis risus venenatis tincidunt. Phasellus congue ante at mi facilisis, nec sodales erat condimentum.
-                Quisque convallis orci eget lacus auctor, vestibulum auctor ante rhoncus.
-              </p>
-              <p>
-                Curabitur lacus magna, commodo in fringilla viverra, molestie quis nibh. Ut pellentesque, elit mollis
-                pharetra euismod, orci nunc efficitur nunc, ut commodo nulla urna in dui. Proin vestibulum turpis
-                interdum dictum rhoncus. Quisque in mollis lectus.
-              </p>
-            </StyledDetails>
-            <StyledStack>
-              <H3Title style="sans-serif" weight="bold">
-                Tecnologias utilizadas
-              </H3Title>
-              <StyledTagsContainer>
-                {projectTags.map(
-                  (tag, tagKey) =>
-                    tag.label && (
-                      <Tag key={tagKey} color={tag.color}>
-                        {tag.label}
-                      </Tag>
-                    )
-                )}
-              </StyledTagsContainer>
-            </StyledStack>
-          </StyledProjectRightColumn>
-        </RightColumn>
-      </ColumnsWrapper>
-    </ContainerPage>
+    project && (
+      <ContainerPage>
+        <Header />
+        <ColumnsWrapper>
+          <LeftColumn />
+          <RightColumn css={{ flexDirection: ' row', gap: 24, alignItems: 'flex-start' }}>
+            <StyledProjectLeftColumn>
+              <StyledLink href="/projetos">
+                <Icon css={{ color: '$coral' }}>arrow_back_ios</Icon> <p>ver todos os projetos</p>
+              </StyledLink>
+              <StyledImageContainer>
+                <Image src={project.projectPhoto.url} alt="Miniatura do Projeto" fill style={{ objectFit: 'cover' }} />
+              </StyledImageContainer>
+              <StyledContainerButtons>
+                <Link href={project.projectDeploy} target="_blank">
+                  <StyledButton>
+                    <Icon css={{ color: '$coral' }}>open_in_new</Icon>
+                    <p>aplicação online</p>
+                  </StyledButton>
+                </Link>
+                <Link href={project.projectRepositorio} target="_blank">
+                  <StyledButton>
+                    <Icon css={{ color: '$coral' }}>code</Icon>
+                    <p>repositório no github</p>
+                  </StyledButton>
+                </Link>
+              </StyledContainerButtons>
+              {/* <Buttons></Buttons> */}
+            </StyledProjectLeftColumn>
+            <StyledProjectRightColumn>
+              <StyledDetails>
+                <H2Title>{project?.projectName}</H2Title>
+                <p>{project.projectLongDescription}</p>
+              </StyledDetails>
+              <StyledStack>
+                <H3Title style="sans-serif" weight="bold">
+                  Tecnologias utilizadas
+                </H3Title>
+                <StyledTagsContainer>
+                  {projectTags?.map(
+                    (tag, tagKey) =>
+                      tag.label && (
+                        <Tag key={tagKey} color={tag.color}>
+                          {tag.label}
+                        </Tag>
+                      )
+                  )}
+                </StyledTagsContainer>
+              </StyledStack>
+            </StyledProjectRightColumn>
+          </RightColumn>
+        </ColumnsWrapper>
+      </ContainerPage>
+    )
   );
-}
+};
+
+Project.getInitialProps = async ({ res, query }) => {
+  const slug = query.slug;
+
+  const project = db.find(project => project.slug == slug);
+  return {
+    project: project
+      ? ({
+          projectName: project.name,
+          projectShortDescription: project.description,
+          projectLongDescription: project.longDescription,
+          projectPhoto: { url: project.image },
+          projectSlug: project.slug,
+          projectTags: project.tags,
+          projectDeploy: project.deploy,
+          projectRepositorio: project.repositorio,
+        } as ProjectType)
+      : undefined,
+  };
+};
+// if (res) {
+//   res.statusCode = 404;
+//   res.end('Not found');
+//   return {project: undefined};
+// }
+
+export default Project;

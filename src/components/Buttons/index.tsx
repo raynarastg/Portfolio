@@ -20,7 +20,7 @@ export const StyledButton = styled('button', {
     outline: '2px solid $petroleo',
   },
 });
-const StyledContainerButtons = styled('div', {
+export const StyledContainerButtons = styled('div', {
   alignItems: 'flex-start',
   display: 'flex',
   flexDirection: 'column',

@@ -30,7 +30,7 @@ export default function Projects() {
             {db.map((project, key) => (
               <ProjectCard
                 key={key}
-                projectPath={`/projeto/${key}`}
+                projectPath={`/projeto/${project.slug}`}
                 projectImageUrl={project.image}
                 projectTitle={project.name}
                 projectShortDescription={project.description}
