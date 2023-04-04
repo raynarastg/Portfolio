@@ -31,8 +31,8 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     }),
   },
   media: {
-    bp1: '(max-width: 640px)',
-    bp2: '(max-width: 768px)',
+    bp1: '(max-width: 300px)',
+    bp2: '(max-width: 900px)',
     bp3: '(min-width: 1024px)',
   },
 });

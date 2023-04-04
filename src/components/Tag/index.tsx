@@ -37,9 +37,6 @@ const StyledTag = styled('span', {
       cinza: {
         backgroundColor: '$cinza',
       },
-      marronzinho: {
-        backgroundColor: '#D3AB9E',
-      },
     },
     type: {
       soft: {

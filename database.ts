@@ -1,5 +1,4 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-
 import { Tag } from './src/components/Tag';
 
 const client = new ApolloClient({
@@ -56,17 +55,79 @@ async function ConsultProjects() {
   });
   return data.projects;
 }
-
+let arrayDeTags: Tag[] = [];
 const hygraphProjects = await ConsultProjects();
 
 export const db: ProjectType[] = hygraphProjects.map(hygraphProject => ({
   ...hygraphProject,
-  projectTags: [
-    { label: 'React', color: 'azul' },
-    { label: 'JavaScript', color: 'amarelo' },
-    { label: 'CSS', color: 'coral' },
-  ],
+  projectTags: hygraphProject.projectTags.map(tag => {
+    switch (tag.label) {
+      case 'CSS':
+        return { label: 'CSS', color: 'coral' };
+      case 'React':
+        return { label: 'React', color: 'azul' };
+      case 'JavaScript':
+        return { label: 'JavaScript', color: 'amarelo' };
+      case 'TypeScript':
+        return { label: 'TypeScript', color: 'amarelo' };
+      case 'Node.js':
+        return { label: 'Node.js', color: 'verde' };
+      case 'Mongodb':
+        return { label: 'Mongodb' };
+      case 'Mongoose':
+        return { label: 'Mongoose' };
+      case 'MySQL':
+        return { label: 'MySQL' };
+      case 'Sequelize':
+        return { label: 'Sequelize' };
+      case 'Express':
+        return { label: 'Express', color: 'verde' };
+      case 'Docker':
+        return { label: 'Docker', color: 'azul' };
+      case 'Mocha':
+        return { label: 'Mocha', color: 'rosa' };
+      case 'RTL':
+        return { label: 'RTL', color: 'rosa' };
+      case 'Jest':
+        return { label: 'Jest', color: 'rosa' };
+      default:
+        return { label: tag.label };
+    }
+  }),
 }));
+
+// switch (tag.label) {
+//   case 'CSS':
+//     return arrayDeTags.push({ label: 'CSS', color: 'coral' });
+//   case 'React':
+//     return arrayDeTags.push({ label: 'React', color: 'azul' });
+//   case 'JavaScript':
+//     return arrayDeTags.push({ label: 'JavaScript', color: 'amarelo' });
+//   case 'TypeScript':
+//     return arrayDeTags.push({ label: 'TypeScript', color: 'amarelo' });
+//   case 'Node.js':
+//     return arrayDeTags.push({ label: 'Node.js', color: 'verde' });
+//   case 'Mongodb':
+//     return arrayDeTags.push({ label: 'Mongodb' });
+//   case 'Mongoose':
+//     return arrayDeTags.push({ label: 'Mongoose' });
+//   case 'MySQL':
+//     return arrayDeTags.push({ label: 'MySQL' });
+//   case 'Sequelize':
+//     return arrayDeTags.push({ label: 'Sequelize' });
+//   case 'Express':
+//     return arrayDeTags.push({ label: 'Express', color: 'verde' });
+//   case 'Docker':
+//     return arrayDeTags.push({ label: 'Docker', color: 'azul' });
+//   case 'Mocha':
+//     return arrayDeTags.push({ label: 'Mocha', color: 'rosa' });
+//   case 'RTL':
+//     return arrayDeTags.push({ label: 'RTL', color: 'rosa' });
+//   case 'Jest':
+//     return arrayDeTags.push({ label: 'Jest', color: 'rosa' });
+//   default:
+//     return console.log(arrayDeTags);
+// }
 
 type HardSkill = {
   skill: string;

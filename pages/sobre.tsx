@@ -43,6 +43,19 @@ const StyledContainerHardSkills = styled('div', {
   gap: 8,
   flexWrap: 'wrap',
   maxHeight: 220,
+  '@bp1': {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    maxHeight: 340,
+    border: 8,
+  },
+  '@bp2': {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    maxHeight: 340,
+  },
 });
 
 const StyledContainerSoftSkills = styled('div', {
