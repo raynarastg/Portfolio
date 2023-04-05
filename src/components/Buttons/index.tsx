@@ -71,6 +71,10 @@ const StyledButtonColor = styled('div', {
   [`& ${Icon}`]: {
     color: '$offwhite',
   },
+  '@bp1': {
+    fontSize: 14,
+    gap: 4,
+  },
 });
 
 const StyledButtonHeader = styled('button', {
@@ -102,6 +106,10 @@ const StyledButtonHeader = styled('button', {
         },
       },
     },
+  },
+  '@bp1': {
+    fontSize: 14,
+    gap: 4,
   },
 });
 

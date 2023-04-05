@@ -31,7 +31,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     }),
   },
   media: {
-    bp1: '(max-width: 300px)',
+    bp1: '(max-width: 400px)',
     bp2: '(max-width: 900px)',
     bp3: '(min-width: 1024px)',
   },
@@ -44,10 +44,18 @@ export const globalStyles = globalCss({
     fontFamily: 'Arvo, serif',
     color: '$elefante',
     background: '$offwhite',
+    '@bp1': {
+      width: '110%',
+    },
   },
   body: {
     px: 80,
     py: 40,
+    '@bp1': {
+      px: 16,
+      py: 16,
+      width: '100%',
+    },
   },
   '*': {
     boxSizing: 'border-box',

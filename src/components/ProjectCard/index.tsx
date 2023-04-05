@@ -38,6 +38,9 @@ const StyledProjectDetails = styled('div', {
   py: 16,
   p: {
     fontSize: 14,
+    '@bp1': {
+      fontSize: 12,
+    },
   },
   textAlign: 'center',
 });

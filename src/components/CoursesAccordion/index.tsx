@@ -2,7 +2,6 @@ import { Icon } from '@/components/Icon';
 import { styled } from '@/stitches.config';
 import * as Accordion from '@radix-ui/react-accordion';
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import { H4Title, H5Title } from '../Title';
 
@@ -23,6 +22,11 @@ const StyledAccordionItem = styled(Accordion.Item, {
   background: '$cinzinha',
   position: 'relative',
   transition: 'all 1s ease',
+  '@bp1': {
+    p: {
+      fontSize: 14,
+    },
+  },
 });
 const StyledAccordionHeader = styled(Accordion.Header, {
   display: 'flex',
@@ -66,13 +70,14 @@ const StyledTriggerDescription = styled('div', {
 });
 
 const StyledImageIcon = styled('div', {
-  height: 30,
+  height: 25,
   position: 'relative',
-  width: 30,
-});
-
-const StyledLink = styled(Link, {
-  paddingBottom: 8,
+  width: 25,
+  flexShrink: 0,
+  '@bp1': {
+    height: 20,
+    width: 20,
+  },
 });
 
 export const CoursesAccordion: React.FC = () => (
@@ -106,11 +111,10 @@ export const CoursesAccordion: React.FC = () => (
         </StyledTriggerDescription>
       </AccordionTrigger>
       <AccordionContent>
-        {/* <StyledLink href="https://smartcerts.co/certificate/xyzpxery" target="_blank">
-          Certificado
-        </StyledLink> */}
-        No curso introdutório de JavaScript, aprendi sobre quando e por que utilizar <strong>let</strong> e{' '}
-        <strong>const</strong>, <strong>if</strong> e <strong>else</strong>, e <strong>laços de repetições</strong>.
+        <p>
+          No curso introdutório de JavaScript, aprendi sobre quando e por que utilizar <strong>let</strong> e{' '}
+          <strong>const</strong>, <strong>if</strong> e <strong>else</strong>, e <strong>laços de repetições</strong>.
+        </p>
       </AccordionContent>
     </StyledAccordionItem>
     <StyledAccordionItem className="AccordionItem" value="item-2">
@@ -142,9 +146,11 @@ export const CoursesAccordion: React.FC = () => (
         </StyledTriggerDescription>
       </AccordionTrigger>
       <AccordionContent>
-        {' '}
-        Durante o módulo de Desenvolvimento Web, estudei e apliquei de forma prática conteúdos como: Unix,Bash, Git,
-        Internet, DOM, HTMl & CSS avançado, JS avançcado e Testes unitários.
+        <p>
+          {' '}
+          Durante o módulo de Desenvolvimento Web, estudei e apliquei de forma prática conteúdos como: Unix,Bash, Git,
+          Internet, DOM, HTMl & CSS avançado, JS avançcado e Testes unitários.
+        </p>
       </AccordionContent>
     </StyledAccordionItem>
     <StyledAccordionItem className="AccordionItem" value="item-3">
@@ -176,9 +182,11 @@ export const CoursesAccordion: React.FC = () => (
         </StyledTriggerDescription>
       </AccordionTrigger>
       <AccordionContent>
-        Durante o módulo de Desenvolvimento Fron-end, estudei e apliquei de forma prática conteúdos como: React,
-        incluindo Componentes, Estado e Eventos, Componentes Controlados, Ciclo de Vida, Router, Testes com RTL, Redux
-        com React, Context API, React Hooks, metodologias ágeis e habilidades comportamentais.
+        <p>
+          Durante o módulo de Desenvolvimento Fron-end, estudei e apliquei de forma prática conteúdos como: React,
+          incluindo Componentes, Estado e Eventos, Componentes Controlados, Ciclo de Vida, Router, Testes com RTL, Redux
+          com React, Context API, React Hooks, metodologias ágeis e habilidades comportamentais.
+        </p>
       </AccordionContent>
     </StyledAccordionItem>
     <StyledAccordionItem className="AccordionItem" value="item-4">
@@ -210,9 +218,11 @@ export const CoursesAccordion: React.FC = () => (
         </StyledTriggerDescription>
       </AccordionTrigger>
       <AccordionContent>
-        Durante o módulo de Desenvolvimento Back-end, estudei e apliquei de forma prática conteúdos como: Docker, banco
-        de dados SQL e NoSQL, Node.js e Express, Mocha, Chai e Sinon, construção de APIs em camadas, REST, JWT, ORM,
-        deploy, TypeScript, POO, SOLID, conceitos de CI/CD com Github Actions.
+        <p>
+          Durante o módulo de Desenvolvimento Back-end, estudei e apliquei de forma prática conteúdos como: Docker,
+          banco de dados SQL e NoSQL, Node.js e Express, Mocha, Chai e Sinon, construção de APIs em camadas, REST, JWT,
+          ORM, deploy, TypeScript, POO, SOLID, conceitos de CI/CD com Github Actions.
+        </p>
       </AccordionContent>
     </StyledAccordionItem>
   </StyledAccordionRoot>

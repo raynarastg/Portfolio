@@ -10,6 +10,10 @@ const StyledSection = styled('section', {
   flexDirection: 'column',
   gap: 24,
   width: 328,
+  '@bp1': {
+    gap: 16,
+    // marginLeft: 115,
+  },
 });
 
 const StyledContactsContainer = styled('div', {

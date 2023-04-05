@@ -13,6 +13,9 @@ const StyledHomeContainer = styled('div', {
   flexDirection: 'row',
   gap: 24,
   justifyContent: 'flex-start',
+  '@bp1': {
+    gap: 16,
+  },
 });
 
 const StyledPictureContainer = styled('div', {
@@ -23,6 +26,10 @@ const StyledPictureContainer = styled('div', {
   overflow: 'hidden',
   position: 'relative',
   width: 62,
+  '@bp1': {
+    height: 50,
+    width: 50,
+  },
 });
 
 const StyledHomeMessage = styled('div', {
@@ -41,6 +48,17 @@ const StyledHomeMessage = styled('div', {
   },
   px: 36,
   py: 24,
+  '@bp1': {
+    p: {
+      fontSize: 16,
+      lineHeight: '25px',
+      strong: {
+        fontWeight: 700,
+      },
+    },
+    px: 20,
+    py: 16,
+  },
 });
 
 export default function Home() {

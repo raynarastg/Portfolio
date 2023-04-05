@@ -21,6 +21,11 @@ const StyledProjectLeftColumn = styled('div', {
   flexDirection: 'column',
   gap: 16,
   width: 320,
+  '@bp1': {
+    p: {
+      fontSize: 14,
+    },
+  },
 });
 
 const StyledImageContainer = styled('div', {
@@ -36,6 +41,11 @@ const StyledProjectRightColumn = styled('div', {
   gap: 32,
   px: 16,
   py: 0,
+  '@bp1': {
+    p: {
+      fontSize: 14,
+    },
+  },
 });
 const StyledDetails = styled('div', {
   display: 'flex',
@@ -95,7 +105,14 @@ const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
       <Header />
       <ColumnsWrapper>
         <LeftColumn />
-        <RightColumn css={{ flexDirection: ' row', gap: 24, alignItems: 'flex-start' }}>
+        <RightColumn
+          css={{
+            flexDirection: ' row',
+            gap: 24,
+            alignItems: 'flex-start',
+            '@bp1': { flexDirection: 'column' },
+          }}
+        >
           <StyledProjectLeftColumn>
             <StyledLink href="/projetos">
               <Icon css={{ color: '$coral' }}>arrow_back_ios</Icon> <p>ver todos os projetos</p>

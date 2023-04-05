@@ -35,6 +35,11 @@ const StyledSkills = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: 32,
+  '@bp1': {
+    p: {
+      fontSize: 12,
+    },
+  },
 });
 
 const StyledContainerHardSkills = styled('div', {
@@ -48,7 +53,7 @@ const StyledContainerHardSkills = styled('div', {
     flexDirection: 'column',
     flexWrap: 'wrap',
     maxHeight: 340,
-    border: 8,
+    marginRight: 8,
   },
   '@bp2': {
     display: 'flex',
@@ -65,7 +70,7 @@ const StyledContainerSoftSkills = styled('div', {
   flexWrap: 'wrap',
 });
 
-const StyledLine = styled('p', {
+const StyledLine = styled('span', {
   width: 0,
   height: 45,
   border: '1px dashed $elefante',

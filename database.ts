@@ -55,7 +55,6 @@ async function ConsultProjects() {
   });
   return data.projects;
 }
-let arrayDeTags: Tag[] = [];
 const hygraphProjects = await ConsultProjects();
 
 export const db: ProjectType[] = hygraphProjects.map(hygraphProject => ({
@@ -90,6 +89,7 @@ export const db: ProjectType[] = hygraphProjects.map(hygraphProject => ({
         return { label: 'RTL', color: 'rosa' };
       case 'Jest':
         return { label: 'Jest', color: 'rosa' };
+
       default:
         return { label: tag.label };
     }

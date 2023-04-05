@@ -44,6 +44,9 @@ const StyledTag = styled('span', {
         color: '$offwhite',
         fontSize: 14,
         textTransform: 'uppercase',
+        '@bp1': {
+          fontSize: 10,
+        },
       },
     },
   },
