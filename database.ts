@@ -10,7 +10,7 @@ export type ProjectType = {
   projectName: string;
   projectShortDescription: string;
   projectLongDescription?: string;
-  projectTags: Tag[];
+  projectTags: Tag[] | string[];
   projectPhoto: {
     url: string;
   };
@@ -60,38 +60,38 @@ const hygraphProjects = await ConsultProjects();
 export const db: ProjectType[] = hygraphProjects.map(hygraphProject => ({
   ...hygraphProject,
   projectTags: hygraphProject.projectTags.map(tag => {
-    switch (tag.label) {
+    switch (tag) {
       case 'CSS':
-        return { label: 'CSS', color: 'coral' };
+        return { label: tag, color: 'coral' };
       case 'React':
-        return { label: 'React', color: 'azul' };
+        return { label: tag, color: 'azul' };
       case 'JavaScript':
-        return { label: 'JavaScript', color: 'amarelo' };
+        return { label: tag, color: 'amarelo' };
       case 'TypeScript':
-        return { label: 'TypeScript', color: 'amarelo' };
+        return { label: tag, color: 'amarelo' };
       case 'Node.js':
-        return { label: 'Node.js', color: 'verde' };
+        return { label: tag, color: 'verde' };
       case 'Mongodb':
-        return { label: 'Mongodb' };
+        return { label: tag };
       case 'Mongoose':
-        return { label: 'Mongoose' };
+        return { label: tag };
       case 'MySQL':
-        return { label: 'MySQL' };
+        return { label: tag };
       case 'Sequelize':
-        return { label: 'Sequelize' };
+        return { label: tag };
       case 'Express':
-        return { label: 'Express', color: 'verde' };
+        return { label: tag, color: 'verde' };
       case 'Docker':
-        return { label: 'Docker', color: 'azul' };
+        return { label: tag, color: 'azul' };
       case 'Mocha':
-        return { label: 'Mocha', color: 'rosa' };
+        return { label: tag, color: 'rosa' };
       case 'RTL':
-        return { label: 'RTL', color: 'rosa' };
+        return { label: tag, color: 'rosa' };
       case 'Jest':
-        return { label: 'Jest', color: 'rosa' };
+        return { label: tag, color: 'rosa' };
 
       default:
-        return { label: tag.label };
+        return { label: tag };
     }
   }),
 }));

@@ -7,7 +7,7 @@ import { ProjectCard } from '@/src/components/ProjectCard';
 import { RightColumn } from '@/src/components/RightColumn';
 import { H2Title } from '@/src/components/Title';
 import { styled } from '@/stitches.config';
-
+console.log(db);
 const StyledProjectsContainer = styled('div', {
   alignItems: 'stretch',
   display: 'flex',
