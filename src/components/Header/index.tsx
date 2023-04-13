@@ -3,13 +3,12 @@ import Link from 'next/link';
 import React, { ComponentProps } from 'react';
 import { HeaderButton } from '../Buttons';
 import { Icon } from '../Icon';
-
 export const ContainerButtonsHeader = styled('header', {
   alignItems: 'flex-start',
   display: 'flex',
   flexDirection: 'row',
   gap: 20,
-  width: 328,
+  // width: 328,
 });
 
 type HeaderProps = ComponentProps<typeof ContainerButtonsHeader> & {
@@ -27,7 +26,7 @@ export const Header: React.FC<HeaderProps> = ({ pageActive, ...props }) => {
       </Link>
       <Link href="/projetos">
         <HeaderButton active={pageActive == 'projetos' ? true : false}>
-          <Icon>code_off</Icon>
+          <Icon>code</Icon>
           <p>PROJETOS</p>
         </HeaderButton>
       </Link>

@@ -10,9 +10,10 @@ const StyledSection = styled('section', {
   flexDirection: 'column',
   gap: 24,
   width: 328,
-  '@bp1': {
+  '@mobile': {
     gap: 16,
-    // marginLeft: 115,
+    alignSelf: 'flex-start',
+    width: '100%',
   },
 });
 
@@ -67,58 +68,3 @@ export const LeftColumn: React.FC<LeftColumnProps> = ({ ...props }) => {
     </StyledSection>
   );
 };
-
-// interface IColunaEsquerda {
-//   rota?: string
-// }
-
-// const StyledSectionName = styled('div', {
-//   display: 'inline-flex',
-//   flexDirection: 'column',
-//   gap: 8,
-//   h1: {
-//     margin: 0
-//   },
-//   h4: {
-//     margin: 0
-//   }
-// })
-
-// const StyledH1 = styled('h1', {
-//   color: '$coral'
-// });
-
-// const StyledH4 = styled('h4', {
-//   color: '$petroleo'
-// });
-
-// const StyledSectionIcons = styled('div', {
-//   display: 'flex',
-//   flexDirection: 'row',
-//   gap: 24
-// });
-
-// export const ColunaEsquerda: FC<IColunaEsquerda> = ({}) => {
-//   return (
-//     <StyledSection>
-//       <StyledSectionName>
-//         <StyledH1>RAYNARA <br></br> SANTIAGO</StyledH1>
-//           <StyledH4>Full Stack Developer</StyledH4>
-//       </StyledSectionName>
-//       <StyledSectionIcons>
-//         <a target='_blank' href="https://www.linkedin.com/in/raynarastg/">
-//           <div>icon linkedin</div>
-//         </a>
-//         <a target='_blank' href="https://github.com/raynarastg">
-//           <div>icon github</div>
-//         </a>
-//         <a target='_blank' href="https://www.instagram.com/raynara.dev/">
-//           <div>icon instagram</div>
-//         </a>
-//       </StyledSectionIcons>
-//       <StyledSectionContact>
-//         <p>RAYNARASTGDEV@GMAIL.COM</p>
-//         <p>(44) 98402-2118</p>
-//       </StyledSectionContact>
-//     </StyledSection>)
-// }

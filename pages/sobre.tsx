@@ -35,7 +35,7 @@ const StyledSkills = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: 32,
-  '@bp1': {
+  '@mobile': {
     p: {
       fontSize: 12,
     },
@@ -48,18 +48,12 @@ const StyledContainerHardSkills = styled('div', {
   gap: 8,
   flexWrap: 'wrap',
   maxHeight: 220,
-  '@bp1': {
+  '@tablet': {
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
     maxHeight: 340,
-    marginRight: 8,
-  },
-  '@bp2': {
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    maxHeight: 340,
+    width: '100%',
   },
 });
 
@@ -92,12 +86,12 @@ export default function About() {
                 👩🏻‍🎓 Formação acadêmica
               </H3Title>
               <StyledContainerGraduations>
-                <StyledContainerInfosGraduations>
+                <StyledContainerInfosGraduations css={{ '@mobile': { display: 'none' } }}>
                   <p>2017 - 2019</p>
                   <p>2022 - 2023</p>
                 </StyledContainerInfosGraduations>
                 <StyledContainerInfosGraduations>
-                  <StyledLine />
+                  <StyledLine css={{ '@mobile': { display: 'none' } }} />
                 </StyledContainerInfosGraduations>
                 <StyledContainerInfosGraduations>
                   <p>

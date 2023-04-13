@@ -19,6 +19,9 @@ export const StyledButton = styled('button', {
   '&:focus-visible': {
     outline: '2px solid $petroleo',
   },
+  '.taxado': {
+    textDecoration: 'line-through',
+  },
 });
 export const StyledContainerButtons = styled('div', {
   alignItems: 'flex-start',
@@ -71,7 +74,7 @@ const StyledButtonColor = styled('div', {
   [`& ${Icon}`]: {
     color: '$offwhite',
   },
-  '@bp1': {
+  '@mobile': {
     fontSize: 14,
     gap: 4,
   },
@@ -91,7 +94,6 @@ const StyledButtonHeader = styled('button', {
   position: 'relative',
   [`&:hover ${StyledButtonColor}`]: {
     width: '100%',
-    // backgroundColor: '$coral',
   },
   variants: {
     active: {
@@ -107,7 +109,7 @@ const StyledButtonHeader = styled('button', {
       },
     },
   },
-  '@bp1': {
+  '@mobile': {
     fontSize: 14,
     gap: 4,
   },

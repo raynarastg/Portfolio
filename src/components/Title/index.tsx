@@ -14,7 +14,7 @@ const StyledH1 = styled('h1', {
       },
     },
   },
-  '@bp1': {
+  '@mobile': {
     fontSize: 40,
   },
 });
@@ -32,7 +32,7 @@ const StyledH2 = styled('h2', {
       },
     },
   },
-  '@bp1': {
+  '@mobile': {
     fontSize: 22,
   },
 });
@@ -60,7 +60,7 @@ const StyledH3 = styled('h3', {
       },
     },
   },
-  '@bp1': {
+  '@mobile': {
     fontSize: 16,
   },
 });
@@ -88,7 +88,7 @@ const StyledH4 = styled('h4', {
       },
     },
   },
-  '@bp1': {
+  '@mobile': {
     fontSize: 14,
   },
 });
@@ -114,7 +114,7 @@ const StyledH5 = styled('h5', {
       },
     },
   },
-  '@bp1': {
+  '@mobile': {
     fontSize: 12,
   },
 });

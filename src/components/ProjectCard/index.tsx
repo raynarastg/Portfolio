@@ -17,7 +17,7 @@ const StyledProjectCard = styled('div', {
   flex: 1,
   flexDirection: 'column',
   minWidth: 269,
-  maxWidth: 286,
+  maxWidth: 295,
   transition: 'all 0.25s ease',
 });
 
@@ -38,7 +38,7 @@ const StyledProjectDetails = styled('div', {
   py: 16,
   p: {
     fontSize: 14,
-    '@bp1': {
+    '@mobile': {
       fontSize: 12,
     },
   },

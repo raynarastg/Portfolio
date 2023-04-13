@@ -10,7 +10,7 @@ export type ProjectType = {
   projectName: string;
   projectShortDescription: string;
   projectLongDescription?: string;
-  projectTags: Tag[] | string[];
+  projectTags: Tag[];
   projectPhoto: {
     url: string;
   };
@@ -18,20 +18,13 @@ export type ProjectType = {
   projectDeploy: string;
 };
 
-type DataType = {
-  projects: ProjectType[];
-};
+interface HygraphProjectType extends Omit<ProjectType, 'projectTags'> {
+  projectTags: string[];
+}
 
-// type DbType = {
-//   slug: string;
-//   name: string;
-//   image: string;
-//   description: string;
-//   longDescription?: string;
-//   tags: Tag[];
-//   repositorio: string;
-//   deploy: string;
-// };
+type DataType = {
+  projects: HygraphProjectType[];
+};
 
 async function ConsultProjects() {
   const { data } = await client.query<DataType>({
@@ -69,7 +62,7 @@ export const db: ProjectType[] = hygraphProjects.map(hygraphProject => ({
         return { label: tag, color: 'amarelo' };
       case 'TypeScript':
         return { label: tag, color: 'amarelo' };
-      case 'Node.js':
+      case 'Node':
         return { label: tag, color: 'verde' };
       case 'Mongodb':
         return { label: tag };
@@ -79,11 +72,17 @@ export const db: ProjectType[] = hygraphProjects.map(hygraphProject => ({
         return { label: tag };
       case 'Sequelize':
         return { label: tag };
+      case 'Redux':
+        return { label: tag, color: 'roxo' };
       case 'Express':
         return { label: tag, color: 'verde' };
       case 'Docker':
         return { label: tag, color: 'azul' };
       case 'Mocha':
+        return { label: tag, color: 'rosa' };
+      case 'Chai':
+        return { label: tag, color: 'rosa' };
+      case 'Sinon':
         return { label: tag, color: 'rosa' };
       case 'RTL':
         return { label: tag, color: 'rosa' };
@@ -96,39 +95,6 @@ export const db: ProjectType[] = hygraphProjects.map(hygraphProject => ({
   }),
 }));
 
-// switch (tag.label) {
-//   case 'CSS':
-//     return arrayDeTags.push({ label: 'CSS', color: 'coral' });
-//   case 'React':
-//     return arrayDeTags.push({ label: 'React', color: 'azul' });
-//   case 'JavaScript':
-//     return arrayDeTags.push({ label: 'JavaScript', color: 'amarelo' });
-//   case 'TypeScript':
-//     return arrayDeTags.push({ label: 'TypeScript', color: 'amarelo' });
-//   case 'Node.js':
-//     return arrayDeTags.push({ label: 'Node.js', color: 'verde' });
-//   case 'Mongodb':
-//     return arrayDeTags.push({ label: 'Mongodb' });
-//   case 'Mongoose':
-//     return arrayDeTags.push({ label: 'Mongoose' });
-//   case 'MySQL':
-//     return arrayDeTags.push({ label: 'MySQL' });
-//   case 'Sequelize':
-//     return arrayDeTags.push({ label: 'Sequelize' });
-//   case 'Express':
-//     return arrayDeTags.push({ label: 'Express', color: 'verde' });
-//   case 'Docker':
-//     return arrayDeTags.push({ label: 'Docker', color: 'azul' });
-//   case 'Mocha':
-//     return arrayDeTags.push({ label: 'Mocha', color: 'rosa' });
-//   case 'RTL':
-//     return arrayDeTags.push({ label: 'RTL', color: 'rosa' });
-//   case 'Jest':
-//     return arrayDeTags.push({ label: 'Jest', color: 'rosa' });
-//   default:
-//     return console.log(arrayDeTags);
-// }
-
 type HardSkill = {
   skill: string;
   pictureOfSkill: string;
@@ -137,76 +103,6 @@ type HardSkill = {
 type SoftSkill = {
   skill: string;
 };
-
-// type LongDescription = {
-//   projectName: string;
-//   description: string;
-// };
-
-//   [
-//   {
-//     name: '🃏 Tryunfo',
-//     image: '/images/fotosProjetos/tryunfo.png',
-//     description:
-//       'O Tryunfo é um jogo no estilo Super Trunfo, em que é possível criar novas cartas e listar as cartas já existentes no baralho.',
-//     tags: [
-//       { label: 'React', color: 'azul' },
-//       { label: 'JavaScript', color: 'amarelo' },
-//       { label: 'CSS', color: 'coral' },
-//     ],
-//   },
-//   {
-//     name: '💰 Wallet',
-//     image: 'https://picsum.photos/1920/1080',
-//     description:
-//       'Wallet é uma carteira virtal que computa gastos em diferentes moedas e converte tudo para uma única moeda, que pode ser escolhida por quem usa.',
-//     tags: [
-//       { label: 'React', color: 'azul' },
-//       { label: 'Redux', color: 'roxo' },
-//       { label: 'JavaScript', color: 'amarelo' },
-//       { label: 'CSS', color: 'coral' },
-//     ],
-//   },
-//   {
-//     name: '⚽ T.F.C',
-//     image: 'https://picsum.photos/1920/1080',
-//     description: 'O TFC é um site informativo sobre partidas e classificações de futebol!',
-//     tags: [
-//       { label: 'TypeScript', color: 'amarelo' },
-//       { label: 'Node.js', color: 'verde' },
-//       { label: 'MySQL' },
-//       { label: 'Sequelize' },
-//       { label: 'Docker', color: 'azul' },
-//       { label: 'Mocha', color: 'rosa' },
-//       { label: 'Express', color: 'verde' },
-//       { label: 'CSS', color: 'coral' },
-//     ],
-//   },
-//   // {
-//   //   name: 'Tunes',
-//   //   image: 'https://picsum.photos/1920/1080',
-//   //   description:
-//   //     'Tunes é uma aplicação que permite pesquisar e listar álbuns e músicas de bandas e artistas, além de ser possível executar o preview e favoritar suas músicas preferidas.',
-//   //   tags: [
-//   //     { label: 'React', color: 'azul' },
-//   //     { label: 'Redux', color: 'roxo' },
-//   //     { label: 'JavaScript', color: 'amarelo' },
-//   //     { label: 'CSS', color: 'coral' },
-//   //   ],
-//   // },
-//   {
-//     name: '🚗 Car Shop',
-//     image: 'https://picsum.photos/1920/1080',
-//     description:
-//       'O Tryunfo é um jogo no estilo Super Trunfo, em que é possível criar novas cartas e listar as cartas já existentes no baralho.',
-//     tags: [
-//       { label: 'TypeScript', color: 'amarelo' },
-//       { label: 'Node.js', color: 'verde' },
-//       { label: 'MongoDB' },
-//       { label: 'Mongoose' },
-//       { label: 'Express', color: 'verde' },
-//     ],
-//   },
 
 export const hardSkils: HardSkill[] = [
   {
@@ -309,13 +205,3 @@ export const softSkils: SoftSkill[] = [
     skill: 'trabalho em equipe',
   },
 ];
-
-// export const longDescriptionProject: LongDescription[] = [
-//   {
-//     projectName: 'T.F.C',
-//     description: ` Feito usando o método CRUD com TypeScript, utilizando ORM.
-//     Nesse projeto, foi desenvolvida uma API REST utilizando o método TDD e integrada com outras aplicações usando o docker-compose.
-//   A modelagem de dados foi realizada utilizando MySQL através do Sequelize e regras de negócio foram implementadas para garantir que apenas usuários logados possam adicionar partidas e que haja um relacionamento adequado entre as tabelas teams e matches.
-//   O back-end foi dockerizado e deve ser capaz de popular a tabela disponível no front-end do sistema.`,
-//   },
-// ];

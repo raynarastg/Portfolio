@@ -21,7 +21,7 @@ const StyledProjectLeftColumn = styled('div', {
   flexDirection: 'column',
   gap: 16,
   width: 320,
-  '@bp1': {
+  '@mobile': {
     p: {
       fontSize: 14,
     },
@@ -41,7 +41,7 @@ const StyledProjectRightColumn = styled('div', {
   gap: 32,
   px: 16,
   py: 0,
-  '@bp1': {
+  '@mobile': {
     p: {
       fontSize: 14,
     },
@@ -65,13 +65,6 @@ const StyledTagsContainer = styled('div', {
   gap: 8,
   justifyContent: 'flex-start',
 });
-
-// const StyledContainerButtons = styled('div', {
-//   alignItems: 'flex-start',
-//   display: 'flex',
-//   flexDirection: 'column',
-//   gap: 8,
-// });
 
 const StyledLink = styled(Link, {
   display: 'flex',
@@ -110,23 +103,31 @@ const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
             flexDirection: ' row',
             gap: 24,
             alignItems: 'flex-start',
-            '@bp1': { flexDirection: 'column' },
+            '@mobile': { flexDirection: 'column' },
           }}
         >
           <StyledProjectLeftColumn>
             <StyledLink href="/projetos">
               <Icon css={{ color: '$coral' }}>arrow_back_ios</Icon> <p>ver todos os projetos</p>
             </StyledLink>
-            <StyledImageContainer>
-              <Image src={project.projectPhoto.url} alt="Miniatura do Projeto" fill style={{ objectFit: 'cover' }} />
+            <StyledImageContainer css={{ backgroundColor: '$petroleo' }}>
+              <Image src={project.projectPhoto?.url} alt="Miniatura do Projeto" fill style={{ objectFit: 'cover' }} />
             </StyledImageContainer>
             <StyledContainerButtons>
-              <Link href={project.projectDeploy} target="_blank">
+              {project.projectDeploy ? (
+                <>
+                  <Link href={project.projectDeploy} target="_blank">
+                    <StyledButton>
+                      <Icon css={{ color: '$coral' }}>open_in_new</Icon>
+                      <p>aplicação online</p>
+                    </StyledButton>
+                  </Link>{' '}
+                </>
+              ) : (
                 <StyledButton>
-                  <Icon css={{ color: '$coral' }}>open_in_new</Icon>
-                  <p>aplicação online</p>
+                  <p className="taxado">aplicação online</p>
                 </StyledButton>
-              </Link>
+              )}
               <Link href={project.projectRepositorio} target="_blank">
                 <StyledButton>
                   <Icon css={{ color: '$coral' }}>code</Icon>
@@ -134,7 +135,6 @@ const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
                 </StyledButton>
               </Link>
             </StyledContainerButtons>
-            {/* <Buttons></Buttons> */}
           </StyledProjectLeftColumn>
           <StyledProjectRightColumn>
             <StyledDetails>

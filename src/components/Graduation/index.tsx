@@ -15,7 +15,7 @@ const StyledSection = styled('div', {
   span: {
     fontWeight: 500,
   },
-  '@bp1': {
+  '@mobile': {
     p: {
       minWidth: 70,
       flex: 'content',
@@ -29,7 +29,7 @@ const StyledContainer = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   gap: 12,
-  '@bp1': {
+  '@mobile': {
     p: {
       fontSize: 12,
     },

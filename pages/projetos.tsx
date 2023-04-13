@@ -7,7 +7,6 @@ import { ProjectCard } from '@/src/components/ProjectCard';
 import { RightColumn } from '@/src/components/RightColumn';
 import { H2Title } from '@/src/components/Title';
 import { styled } from '@/stitches.config';
-console.log(db);
 const StyledProjectsContainer = styled('div', {
   alignItems: 'stretch',
   display: 'flex',
@@ -31,7 +30,7 @@ export default function Projects() {
               <ProjectCard
                 key={key}
                 projectPath={`/projeto/${project.projectSlug}`}
-                projectImageUrl={project.projectPhoto.url}
+                projectImageUrl={project.projectPhoto?.url}
                 projectTitle={project.projectName}
                 projectShortDescription={project.projectShortDescription}
                 projectTags={project.projectTags}

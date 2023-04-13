@@ -13,8 +13,9 @@ const StyledHomeContainer = styled('div', {
   flexDirection: 'row',
   gap: 24,
   justifyContent: 'flex-start',
-  '@bp1': {
+  '@tablet': {
     gap: 16,
+    flexDirection: 'column',
   },
 });
 
@@ -26,9 +27,10 @@ const StyledPictureContainer = styled('div', {
   overflow: 'hidden',
   position: 'relative',
   width: 62,
-  '@bp1': {
-    height: 50,
-    width: 50,
+  '@tablet': {
+    alignSelf: 'center',
+    height: 100,
+    width: 100,
   },
 });
 
@@ -48,7 +50,7 @@ const StyledHomeMessage = styled('div', {
   },
   px: 36,
   py: 24,
-  '@bp1': {
+  '@mobile': {
     p: {
       fontSize: 16,
       lineHeight: '25px',

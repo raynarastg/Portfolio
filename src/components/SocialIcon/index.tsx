@@ -18,7 +18,7 @@ const StyledIcon = styled('div', {
       },
     },
   },
-  '@bp1': {
+  '@mobile': {
     width: 30,
     height: 30,
   },

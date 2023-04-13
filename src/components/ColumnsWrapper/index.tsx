@@ -6,7 +6,7 @@ const StyledSection = styled('section', {
   flexWrap: 'wrap',
   gap: 80,
   width: '100%',
-  '@bp1': {
+  '@mobile': {
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',

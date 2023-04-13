@@ -9,7 +9,6 @@ const StyledAccordionRoot = styled(Accordion.Root, {
   display: 'flex',
   flexDirection: 'column',
   gap: 16,
-  // transition: 'height 0.5s ease'
 });
 
 const StyledAccordionItem = styled(Accordion.Item, {
@@ -22,7 +21,7 @@ const StyledAccordionItem = styled(Accordion.Item, {
   background: '$cinzinha',
   position: 'relative',
   transition: 'all 1s ease',
-  '@bp1': {
+  '@mobile': {
     p: {
       fontSize: 14,
     },
@@ -74,7 +73,7 @@ const StyledImageIcon = styled('div', {
   position: 'relative',
   width: 25,
   flexShrink: 0,
-  '@bp1': {
+  '@mobile': {
     height: 20,
     width: 20,
   },

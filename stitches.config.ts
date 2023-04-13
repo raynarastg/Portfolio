@@ -31,9 +31,9 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     }),
   },
   media: {
-    bp1: '(max-width: 400px)',
-    bp2: '(max-width: 900px)',
-    bp3: '(min-width: 1024px)',
+    mobile: '(max-width: 360px)',
+    tablet: '(max-width: 768px)',
+    desktop: '(min-width: 1300px)',
   },
 });
 
@@ -44,16 +44,12 @@ export const globalStyles = globalCss({
     fontFamily: 'Arvo, serif',
     color: '$elefante',
     background: '$offwhite',
-    '@bp1': {
-      width: '110%',
-    },
   },
   body: {
     px: 80,
     py: 40,
-    '@bp1': {
-      px: 16,
-      py: 16,
+    '@mobile': {
+      padding: 8,
       width: '100%',
     },
   },
@@ -62,9 +58,6 @@ export const globalStyles = globalCss({
     margin: 0,
     padding: 0,
     scrollBehavior: 'smooth',
-    // '&::selection': {
-    //   background: '$green-100'
-    // },
   },
   a: {
     textDecoration: 'none',
