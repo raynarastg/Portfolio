@@ -147,8 +147,10 @@ export const CoursesAccordion: React.FC = () => (
       <AccordionContent>
         <p>
           {' '}
-          Durante o módulo de Desenvolvimento Web, estudei e apliquei de forma prática conteúdos como: Unix,Bash, Git,
+          Durante o módulo de Fundamentos do Desenvolvimento Web, estudei e apliquei de forma prática conteúdos como: Unix,Bash, Git,
           Internet, DOM, HTMl & CSS avançado, JS avançcado e Testes unitários.
+          <br/>
+          Desenvolvendo no total 6 projetos, 1 deles tendo sido desenvolvido em dupla.
         </p>
       </AccordionContent>
     </StyledAccordionItem>
@@ -185,6 +187,8 @@ export const CoursesAccordion: React.FC = () => (
           Durante o módulo de Desenvolvimento Fron-end, estudei e apliquei de forma prática conteúdos como: React,
           incluindo Componentes, Estado e Eventos, Componentes Controlados, Ciclo de Vida, Router, Testes com RTL, Redux
           com React, Context API, React Hooks, metodologias ágeis e habilidades comportamentais.
+          <br/>
+          Desenvolvendo no total 10 projetos, 1 deles tendo sido desenvolvido em grupo. 
         </p>
       </AccordionContent>
     </StyledAccordionItem>
@@ -221,6 +225,45 @@ export const CoursesAccordion: React.FC = () => (
           Durante o módulo de Desenvolvimento Back-end, estudei e apliquei de forma prática conteúdos como: Docker,
           banco de dados SQL e NoSQL, Node.js e Express, Mocha, Chai e Sinon, construção de APIs em camadas, REST, JWT,
           ORM, deploy, TypeScript, POO, SOLID, conceitos de CI/CD com Github Actions.
+          <br />
+          Desenvolvendo no total 12 projetos, 1 deles sendo full-stack e tendo sido desenvolvido em grupo. 
+        </p>
+      </AccordionContent>
+    </StyledAccordionItem>
+    <StyledAccordionItem className="AccordionItem" value="item-4">
+      <AccordionTrigger>
+        <StyledTriggerDescription>
+          <StyledImageIcon>
+            <Image src="/images/icon-certificate.png" alt="miniatura-icon" fill />
+          </StyledImageIcon>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+            <H5Title style="sans-serif" css={{ color: '$cinza', fontWeight: 700 }}>
+              ABRIL 2023
+            </H5Title>
+            <H4Title style="sans-serif" css={{}}>
+              <span style={{ fontWeight: 700 }}>CIÊNCIA DA COMPUTAÇÃO</span>, TRYBE
+            </H4Title>
+          </div>
+          <Icon
+            size="small"
+            style="outlined"
+            css={{
+              position: 'absolute',
+              right: 0,
+              transition: 'all 0.25s linear',
+            }}
+            className="chevron"
+          >
+            expand_more
+          </Icon>
+        </StyledTriggerDescription>
+      </AccordionTrigger>
+      <AccordionContent>
+        <p>
+          Durante o módulo de Ciência da Computação, estudei e apliquei de forma prática conteúdos como: Python,
+          Pytest, POO em Python, SOLID, Paradigmas, Padrões de projeto, Raspagem e análise de dados, Algoritmos e Recursividade.
+          <br />
+          Desenvolvendo no total 6 projetos.
         </p>
       </AccordionContent>
     </StyledAccordionItem>

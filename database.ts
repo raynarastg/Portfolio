@@ -60,6 +60,8 @@ export const db: ProjectType[] = hygraphProjects.map(hygraphProject => ({
         return { label: tag, color: 'azul' };
       case 'JavaScript':
         return { label: tag, color: 'amarelo' };
+        case 'Python':
+          return { label: tag, color: 'amarelo' };
       case 'TypeScript':
         return { label: tag, color: 'amarelo' };
       case 'Node':
@@ -80,6 +82,8 @@ export const db: ProjectType[] = hygraphProjects.map(hygraphProject => ({
         return { label: tag, color: 'azul' };
       case 'Mocha':
         return { label: tag, color: 'rosa' };
+        case 'Pytest':
+          return { label: tag, color: 'rosa' };
       case 'Chai':
         return { label: tag, color: 'rosa' };
       case 'Sinon':
@@ -88,6 +92,8 @@ export const db: ProjectType[] = hygraphProjects.map(hygraphProject => ({
         return { label: tag, color: 'rosa' };
       case 'Jest':
         return { label: tag, color: 'rosa' };
+        case 'POO':
+          return { label: tag, color: 'pretinho' };
 
       default:
         return { label: tag };

@@ -86,12 +86,12 @@ export default function About() {
                 👩🏻‍🎓 Formação acadêmica
               </H3Title>
               <StyledContainerGraduations>
-                <StyledContainerInfosGraduations css={{ '@mobile': { display: 'none' } }}>
+                <StyledContainerInfosGraduations css={{ '@tablet': { display: 'none' } }}>
                   <p>2017 - 2019</p>
                   <p>2022 - 2023</p>
                 </StyledContainerInfosGraduations>
                 <StyledContainerInfosGraduations>
-                  <StyledLine css={{ '@mobile': { display: 'none' } }} />
+                  <StyledLine css={{ '@tablet': { display: 'none' } }} />
                 </StyledContainerInfosGraduations>
                 <StyledContainerInfosGraduations>
                   <p>
