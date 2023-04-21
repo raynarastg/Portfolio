@@ -230,7 +230,7 @@ export const CoursesAccordion: React.FC = () => (
         </p>
       </AccordionContent>
     </StyledAccordionItem>
-    <StyledAccordionItem className="AccordionItem" value="item-4">
+    <StyledAccordionItem className="AccordionItem" value="item-5">
       <AccordionTrigger>
         <StyledTriggerDescription>
           <StyledImageIcon>

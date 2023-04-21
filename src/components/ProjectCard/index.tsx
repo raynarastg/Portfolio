@@ -14,10 +14,11 @@ const StyledProjectCard = styled('div', {
     boxShadow: '2px 4px 12px 0 rgba(46,64,83,0.30)',
   },
   display: 'inline-flex',
-  flex: 1,
+  flex: 0,
   flexDirection: 'column',
   minWidth: 269,
   maxWidth: 295,
+  minHeight: 400,
   transition: 'all 0.25s ease',
 });
 
@@ -75,7 +76,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <Link href={projectPath}>
         <StyledContainerProjectImage>
           {projectImageUrl && (
-            <Image src={projectImageUrl} alt="miniatura do projeto" fill style={{ objectFit: 'cover' }} />
+            <Image src={projectImageUrl} alt="miniatura do projeto" fill style={{ objectFit: 'cover', }} quality={100} />
           )}
         </StyledContainerProjectImage>
         <StyledProjectDetails>

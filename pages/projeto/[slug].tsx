@@ -111,7 +111,7 @@ const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
               <Icon css={{ color: '$coral' }}>arrow_back_ios</Icon> <p>ver todos os projetos</p>
             </StyledLink>
             <StyledImageContainer css={{ backgroundColor: '$petroleo' }}>
-              <Image src={project.projectPhoto?.url} alt="Miniatura do Projeto" fill style={{ objectFit: 'cover' }} />
+              <Image src={project.projectPhoto?.url} alt="Miniatura do Projeto" quality={100} fill style={{ objectFit: 'cover' }} />
             </StyledImageContainer>
             <StyledContainerButtons>
               {project.projectDeploy ? (

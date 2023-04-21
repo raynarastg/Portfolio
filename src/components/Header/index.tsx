@@ -8,7 +8,6 @@ export const ContainerButtonsHeader = styled('header', {
   display: 'flex',
   flexDirection: 'row',
   gap: 20,
-  // width: 328,
 });
 
 type HeaderProps = ComponentProps<typeof ContainerButtonsHeader> & {
