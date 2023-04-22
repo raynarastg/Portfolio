@@ -4,7 +4,8 @@ const StyledSection = styled("section", {
   display: "inline-flex",
   flex: 1,
   '@mobile': {
-    paddingBottom: 10
+    paddingBottom: 40
+  
   }
 });
 
