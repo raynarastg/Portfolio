@@ -8,6 +8,7 @@ export const ContainerPage = styled('div', {
     width: '100%',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: 'column',
     gap: 50,
   },

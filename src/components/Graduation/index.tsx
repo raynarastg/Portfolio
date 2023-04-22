@@ -30,6 +30,7 @@ const StyledContainer = styled('div', {
   flexDirection: 'row',
   gap: 12,
   '@mobile': {
+
     p: {
       fontSize: 12,
     },

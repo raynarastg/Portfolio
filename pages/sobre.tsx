@@ -23,6 +23,10 @@ const StyledGraduation = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: 24,
+  '@mobile': {
+    textAlign: 'center',
+    alignItems: 'center',
+  }
 });
 
 const StyledCourses = styled('div', {
@@ -36,6 +40,7 @@ const StyledSkills = styled('div', {
   flexDirection: 'column',
   gap: 32,
   '@mobile': {
+    alignItems: 'center',
     p: {
       fontSize: 12,
     },
@@ -48,6 +53,7 @@ const StyledContainerHardSkills = styled('div', {
   gap: 8,
   flexWrap: 'wrap',
   maxHeight: 220,
+  
   '@tablet': {
     display: 'flex',
     flexDirection: 'column',
@@ -62,6 +68,9 @@ const StyledContainerSoftSkills = styled('div', {
   flexDirection: 'row',
   gap: 8,
   flexWrap: 'wrap',
+  '@mobile': {
+    justifyContent: 'center'
+  }
 });
 
 const StyledLine = styled('span', {
@@ -78,7 +87,9 @@ export default function About() {
       <Header pageActive="sobre" />
       <ColumnsWrapper>
         <LeftColumn />
-        <RightColumn css={{ flexDirection: 'column', gap: 24 }}>
+        <RightColumn css={{ flexDirection: 'column', gap: 24, '@mobile': {
+    alignItems: 'center',
+  } }}>
           <H2Title css={{ textTransform: 'uppercase' }}>Sobre mim</H2Title>
           <StyledAboutContainer>
             <StyledGraduation>
@@ -110,12 +121,16 @@ export default function About() {
               </H3Title>
               <CoursesAccordion />
             </StyledCourses>
-            <StyledSkills>
+            <StyledSkills >
               <H3Title style="sans-serif" weight="bold">
                 🌟 Skills
               </H3Title>
               <H5Title>HARD SKILLS</H5Title>
-              <StyledContainerHardSkills>
+              <StyledContainerHardSkills css={{'@mobile': {
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center' },}}>
                 {hardSkils.map((el, index) => (
                   <StyledHardSkills key={index}>
                     <Image src={el.pictureOfSkill} alt="miniatura da skill" height={30} width={30} />

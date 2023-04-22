@@ -22,6 +22,8 @@ const StyledProjectLeftColumn = styled('div', {
   gap: 16,
   width: 320,
   '@mobile': {
+    width: '100%',
+    alignItems: 'center',
     p: {
       fontSize: 14,
     },
@@ -42,6 +44,8 @@ const StyledProjectRightColumn = styled('div', {
   px: 16,
   py: 0,
   '@mobile': {
+    textAlign: 'center',
+    alignItems: 'center',
     p: {
       fontSize: 14,
     },
@@ -110,10 +114,10 @@ const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
             <StyledLink href="/projetos">
               <Icon css={{ color: '$coral' }}>arrow_back_ios</Icon> <p>ver todos os projetos</p>
             </StyledLink>
-            <StyledImageContainer css={{ backgroundColor: '$petroleo' }}>
+            <StyledImageContainer css={{ backgroundColor: '$petroleo',  }}>
               <Image src={project.projectPhoto?.url} alt="Miniatura do Projeto" quality={100} fill style={{ objectFit: 'cover' }} />
             </StyledImageContainer>
-            <StyledContainerButtons>
+            <StyledContainerButtons css={{'@mobile': { flexDirection: 'row'}}}>
               {project.projectDeploy ? (
                 <>
                   <Link href={project.projectDeploy} target="_blank">

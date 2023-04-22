@@ -12,7 +12,8 @@ const StyledSection = styled('section', {
   width: 328,
   '@mobile': {
     gap: 16,
-    alignSelf: 'flex-start',
+    alignItems: 'center',
+    textAlign: 'center',
     width: '100%',
   },
 });
@@ -22,6 +23,9 @@ const StyledContactsContainer = styled('div', {
   flexDirection: 'column',
   padding: 8,
   gap: 8,
+  '@mobile': {
+    flexDirection: 'column-reverse'
+  }
 });
 
 const StyledSocialIconsContainer = styled('div', {
@@ -41,6 +45,7 @@ export const LeftColumn: React.FC<LeftColumnProps> = ({ ...props }) => {
         color="coral"
         css={{
           textTransform: 'uppercase',
+          
         }}
       >
         Raynara Santiago
