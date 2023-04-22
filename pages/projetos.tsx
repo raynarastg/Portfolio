@@ -23,9 +23,9 @@ export default function Projects() {
       <Header pageActive="projetos" />
       <ColumnsWrapper>
         <LeftColumn />
-        <RightColumn css={{ flexDirection: 'column', gap: 24 }}>
+        <RightColumn css={{ flexDirection: 'column', gap: 24, '@mobile': {alignItems: 'center'}}}>
           <H2Title css={{ textTransform: 'uppercase' }}>Projetos</H2Title>
-          <StyledProjectsContainer>
+          <StyledProjectsContainer css={{'@mobile': {justifyContent: 'center'}}}>
             {db.map((project, key) => (
               <ProjectCard
                 key={key}

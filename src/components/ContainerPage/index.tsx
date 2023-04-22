@@ -7,6 +7,7 @@ export const ContainerPage = styled('div', {
   '@mobile': {
     width: '100%',
     display: 'flex',
+    alignItems: 'center',
     flexDirection: 'column',
     gap: 50,
   },

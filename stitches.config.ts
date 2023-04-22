@@ -31,7 +31,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     }),
   },
   media: {
-    mobile: '(max-width: 360px)',
+    mobile: '(max-width: 415px)',
     tablet: '(max-width: 768px)',
     desktop: '(min-width: 1300px)',
   },
