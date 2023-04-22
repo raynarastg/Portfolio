@@ -114,7 +114,7 @@ export default function About() {
                 </StyledContainerInfosGraduations>
               </StyledContainerGraduations>
             </StyledGraduation>
-            <StyledCourses>
+            <StyledCourses css={{'@mobile': {textAlign: 'center'}}}>
               <H3Title style="sans-serif" weight="bold">
                 {' '}
                 📚 Cursos e certificações
