@@ -12,4 +12,9 @@ export const ContainerPage = styled('div', {
     flexDirection: 'column',
     gap: 50,
   },
+  header: {
+    '@desktop': {
+      position: 'fixed',
+    },
+  },
 });

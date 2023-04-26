@@ -12,6 +12,9 @@ const StyledSection = styled('section', {
     flexDirection: 'column',
     gap: 40,
   },
+  '@desktop': {
+    marginTop: 116,
+  },
 });
 
 export const ColumnsWrapper = StyledSection;

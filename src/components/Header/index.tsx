@@ -17,19 +17,19 @@ type HeaderProps = ComponentProps<typeof ContainerButtonsHeader> & {
 export const Header: React.FC<HeaderProps> = ({ pageActive, ...props }) => {
   return (
     <ContainerButtonsHeader {...props}>
-      <Link href="/">
+      <Link href='/'>
         <HeaderButton active={pageActive == 'home' ? true : false}>
           <Icon>home</Icon>
           <p>HOME</p>
         </HeaderButton>
       </Link>
-      <Link href="/projetos">
+      <Link href='/projetos'>
         <HeaderButton active={pageActive == 'projetos' ? true : false}>
           <Icon>code</Icon>
           <p>PROJETOS</p>
         </HeaderButton>
       </Link>
-      <Link href="/sobre">
+      <Link href='/sobre'>
         <HeaderButton active={pageActive == 'sobre' ? true : false}>
           <Icon>auto_awesome</Icon>
           <p>SOBRE</p>
