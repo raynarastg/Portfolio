@@ -11,6 +11,7 @@ const StyledSection = styled('section', {
     display: 'flex',
     flexDirection: 'column',
     gap: 40,
+    marginTop: 60,
   },
   '@desktop': {
     marginTop: 116,

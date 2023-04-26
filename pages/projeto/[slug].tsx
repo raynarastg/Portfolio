@@ -111,16 +111,22 @@ const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
           }}
         >
           <StyledProjectLeftColumn>
-            <StyledLink href="/projetos">
+            <StyledLink href='/projetos'>
               <Icon css={{ color: '$coral' }}>arrow_back_ios</Icon> <p>ver todos os projetos</p>
             </StyledLink>
-            <StyledImageContainer css={{ backgroundColor: '$petroleo',  }}>
-              <Image src={project.projectPhoto?.url} alt="Miniatura do Projeto" quality={100} fill style={{ objectFit: 'cover' }} />
+            <StyledImageContainer css={{ backgroundColor: '$petroleo' }}>
+              <Image
+                src={project.projectPhoto?.url}
+                alt='Miniatura do Projeto'
+                quality={100}
+                fill
+                style={{ objectFit: 'cover' }}
+              />
             </StyledImageContainer>
-            <StyledContainerButtons css={{'@mobile': { flexDirection: 'row'}}}>
+            <StyledContainerButtons css={{ '@mobile': { flexDirection: 'row' } }}>
               {project.projectDeploy ? (
                 <>
-                  <Link href={project.projectDeploy} target="_blank">
+                  <Link href={project.projectDeploy} target='_blank'>
                     <StyledButton>
                       <Icon css={{ color: '$coral' }}>open_in_new</Icon>
                       <p>aplicação online</p>
@@ -128,11 +134,11 @@ const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
                   </Link>{' '}
                 </>
               ) : (
-                <StyledButton>
-                  <p className="taxado">aplicação online</p>
+                <StyledButton disabled css={{ backgroundColor: '$cinzinha', color: '$cinza', borderColor: '$cinza' }}>
+                  <p className='taxado'>aplicação online</p>
                 </StyledButton>
               )}
-              <Link href={project.projectRepositorio} target="_blank">
+              <Link href={project.projectRepositorio} target='_blank'>
                 <StyledButton>
                   <Icon css={{ color: '$coral' }}>code</Icon>
                   <p>repositório no github</p>
@@ -146,7 +152,7 @@ const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
               <p>{project.projectLongDescription}</p>
             </StyledDetails>
             <StyledStack>
-              <H3Title style="sans-serif" weight="bold">
+              <H3Title style='sans-serif' weight='bold'>
                 Tecnologias utilizadas
               </H3Title>
               <StyledTagsContainer>

@@ -1,4 +1,4 @@
-import { styled } from '@stitches/react';
+import { styled } from '@/stitches.config';
 import Link from 'next/link';
 import React, { ComponentProps } from 'react';
 import { HeaderButton } from '../Buttons';
@@ -8,6 +8,15 @@ export const ContainerButtonsHeader = styled('header', {
   display: 'flex',
   flexDirection: 'row',
   gap: 20,
+  '@mobile': {
+    position: 'fixed',
+    top: 10,
+    zIndex: 999,
+    backgroundColor: '$offwhite',
+  },
+  '@desktop': {
+    position: 'fixed',
+  },
 });
 
 type HeaderProps = ComponentProps<typeof ContainerButtonsHeader> & {
