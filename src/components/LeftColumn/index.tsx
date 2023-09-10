@@ -68,9 +68,6 @@ export const LeftColumn: React.FC<LeftColumnProps> = ({ ...props }) => {
         <H5Title color='elefante'>
           <EmojiIcon margin='right'>✉️</EmojiIcon>RAYNARASTGDEV@GMAIL.COM
         </H5Title>
-        <H5Title color='elefante'>
-          <EmojiIcon margin='right'>📱</EmojiIcon>(44) 98402-2118
-        </H5Title>
       </StyledContactsContainer>
     </StyledSection>
   );

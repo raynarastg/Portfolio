@@ -67,18 +67,18 @@ export default function Home() {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
       <ContainerPage>
-        <Header pageActive="home" />
+        <Header pageActive='home' />
         <ColumnsWrapper>
           <LeftColumn />
           <RightColumn>
             <StyledHomeContainer>
               <StyledPictureContainer>
                 <Image
-                  src="/images/profilee.jpeg"
-                  alt="Foto de Raynara Santiago"
+                  src='/images/profilee.jpeg'
+                  alt='Foto de Raynara Santiago'
                   style={{ objectFit: 'cover', transform: 'scale(1.7)', transformOrigin: '50% 10%' }}
                   fill
                 />
@@ -86,7 +86,7 @@ export default function Home() {
               <StyledHomeMessage>
                 <p>
                   Olá, meu nome é Raynara e sou uma <strong>Desenvolvedora Web Full Stack </strong>
-                  de 20 anos, baseada em <strong>Londrina-PR</strong>. 👋
+                  de 21 anos, baseada em <strong>Londrina-PR</strong>. 👋
                 </p>
                 <p>
                   Sou apaixonada por tecnologia e estou sempre buscando me atualizar sobre as tendências do mercado.
